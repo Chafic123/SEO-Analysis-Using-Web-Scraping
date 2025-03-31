@@ -1,20 +1,30 @@
-import requests
-from bs4 import BeautifulSoup
+import os
+import time
+import logging
+import traceback
 from collections import Counter
 import re
-import pandas as pd
-import os
 import threading
-import logging
+import pandas as pd
+import requests
+from bs4 import BeautifulSoup
 from sklearn.feature_extraction.text import TfidfVectorizer
 import nltk
 from nltk.corpus import stopwords
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.chrome import ChromeDriverManager
 
 logging.basicConfig(filename="scraper.log", level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 # NLTK 
 nltk.download("stopwords")
-stop_words = set(stopwords.words("english"))
+# stop_words = set(stopwords.words("english"))
+stop_words = set(stopwords.words("english")) | {"view", "add", "cart", "quick", "load", "original"}
+
 
 def fetch_html(url):
     headers = {"User-Agent": "Mozilla/5.0"}
@@ -27,36 +37,235 @@ def fetch_html(url):
         return None
 
 def extract_meta_data(url, folder_name):
-    soup = fetch_html(url)
-    if not soup:
-        return
-    
-    title = soup.title.string if soup.title else "No title found"
-    meta_desc = soup.find("meta", attrs={"name": "description"})
-    meta_desc = meta_desc["content"] if meta_desc else "No meta description found"
-    meta_keywords = soup.find("meta", attrs={"name": "keywords"})
-    meta_keywords = meta_keywords["content"].split(",") if meta_keywords else []
-    
-    df = pd.DataFrame({"Title": [title], "Meta Description": [meta_desc], "Meta Keywords": [", ".join(meta_keywords)]})
-    df.to_csv(os.path.join(folder_name, "meta_data.csv"), index=False)
-    logging.info("Meta data extracted successfully")
+        soup = fetch_html(url)
+        if not soup:
+            return
+        
+        # Extract Title
+        title = soup.title.string.strip() if soup.title else "No title found"
+
+        # Extract Meta Tags
+        meta_data = []
+        meta_data.append(["Title", title])  # Adding title as first row
+        
+        for meta in soup.find_all("meta"):
+            name = meta.get("name") or meta.get("property")  # Handle both "name" and "property" attributes
+            content = meta.get("content", "No content found")
+            if name:  # Ensure it's a named meta tag
+                meta_data.append([name, content])
+        
+        # Convert to DataFrame
+        df = pd.DataFrame(meta_data, columns=["Meta Tag", "Content"])
+
+        # Ensure folder exists
+        os.makedirs(folder_name, exist_ok=True)
+
+        # Save to CSV
+        file_path = os.path.join(folder_name, "meta_data.csv")
+        df.to_csv(file_path, index=False)
+
+        logging.info(f"Meta data extracted successfully and saved to {file_path}")
 
 def extract_headings_and_strong_words(url, folder_name):
-    soup = fetch_html(url)
-    if not soup:
-        return
-    
-    headings = [heading.get_text(strip=True) for tag in ["h1", "h2", "h3", "h4", "h5", "h6"] for heading in soup.find_all(tag)]
-    strong_words = [word.get_text(strip=True) for word in soup.find_all(["strong", "b", "em"])]
-    
-    max_length = max(len(headings), len(strong_words))
-    headings.extend([""] * (max_length - len(headings)))
-    strong_words.extend([""] * (max_length - len(strong_words)))
-    
-    df = pd.DataFrame({"Headings": headings, "Strong Words": strong_words})
-    df.to_csv(os.path.join(folder_name, "headings_strong_words.csv"), index=False)
-    logging.info("Headings and strong words extracted successfully")
+    options = webdriver.ChromeOptions()
+    options.add_argument("--headless")  # Run in headless mode
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
+    # Initialize data list
+    data = []
+
+    try:
+        driver.get(url)
+        wait = WebDriverWait(driver, 10)
+
+        # Extract brands
+        try:
+            brand_menu = wait.until(EC.presence_of_element_located((By.XPATH, "//summary[contains(@class, 'header__menu-item') and contains(., 'Shop by Brand')]")))
+            driver.execute_script("arguments[0].click();", brand_menu)
+
+            brands_container = wait.until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class, 'wbmenufull')]")))
+            brands = brands_container.find_elements(By.XPATH, ".//div[contains(@class, 'wbmenuinner')]/a")
+
+            brand_names = [brand.text.strip() for brand in brands if brand.text.strip()]
+
+            # Add brand data to the list
+            data.append({
+                "Main Category": "Brands",
+                "Subcategory": "N/A",
+                "Items": ", ".join(brand_names)
+            })
+            print("Brand data extracted successfully!")
+
+        except Exception as e:
+            print(f"Error extracting brand data: {e}")
+            print(traceback.format_exc())
+
+        # Extract categories
+        try:
+            all_categories_btn = wait.until(EC.element_to_be_clickable((By.XPATH, "//span[@class='mega-menu-title']")))
+            driver.execute_script("arguments[0].click();", all_categories_btn)
+            time.sleep(2)
+
+            # Find all main categories
+            main_categories = wait.until(EC.presence_of_all_elements_located((By.XPATH, "//li[contains(@tabindex, '0')]")))
+
+            if not main_categories:
+                print("No main categories found!")
+                return
+
+            print(f"Found {len(main_categories)} main categories")
+
+            for category in main_categories:
+                try:
+                    category_name = category.text.strip()
+                    print(f"Processing category: {category_name}")
+
+                    driver.execute_script("arguments[0].scrollIntoView(true);", category)
+                    category.click()
+                    time.sleep(2)
+
+                    # Extract subcategories
+                    subcategories = category.find_elements(By.XPATH, ".//div[contains(@class, 'wbmenuinner')]/a[contains(@href, 'collections')]")
+
+                    if subcategories:
+                        for subcategory in subcategories:
+                            subcategory_name = subcategory.text.strip()
+                            subcategory_url = subcategory.get_attribute("href")
+
+                            # Extract items under this subcategory
+                            subcategory_container = subcategory.find_element(By.XPATH, "./ancestor::div[contains(@class, 'wbmenuinner')]")
+                            items = subcategory_container.find_elements(By.XPATH, ".//ul[contains(@class, 'header__submenu')]//li//a")
+                            item_names = [item.text.strip() for item in items if item.text.strip()]
+                            items_str = ", ".join(item_names) if item_names else "N/A"
+
+                            # Append subcategory data
+                            data.append({
+                                'Main Category': category_name,
+                                'Subcategory': subcategory_name,
+                                'Items': items_str
+                            })
+                    else:
+                        print(f"No subcategories found for {category_name}")
+
+                except Exception as e:
+                    print(f"Error processing category {category_name}: {e}")
+                    print(traceback.format_exc())
+
+        except Exception as e:
+            print(f"Error extracting categories: {e}")
+            print(traceback.format_exc())
+
+        # Save data
+        if data:
+            os.makedirs(folder_name, exist_ok=True)
+            df = pd.DataFrame(data)
+            df.to_csv(os.path.join(folder_name, "navbar_data.csv"), index=False)
+            print(f"Data saved to: {os.path.join(folder_name, 'navbar_data.csv')}")
+        else:
+            print("No data to save!")
+
+    except Exception as e:
+        print(f"Error: {e}")
+        print(traceback.format_exc())
+
+    finally:
+        driver.quit()
+
+    # ------------------------------- PRODUCT EXTRACTION -----------------------------------------------
+
+    # Re-initialize WebDriver for product scraping
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    driver.get(url)
+    time.sleep(5)  # Allow time for the page to load
+
+    # Accept cookies if present
+    try:
+        cookie_accept = driver.find_element(By.XPATH, "//button[contains(text(), 'Accept') or contains(text(), 'AGREE')]")
+        cookie_accept.click()
+        time.sleep(1)
+    except:
+        pass
+
+    product_data = []
+
+    # Find all category sections with sliders
+    category_sections = driver.find_elements(By.XPATH, "//slider-component[contains(@class, 'slider-component-desktop')]")
+
+    for section in category_sections:
+        try:
+            # Extract main category name
+            try:
+                main_category = section.find_element(By.XPATH, ".//h2[contains(@class, 'h1')]").text.strip()
+            except:
+                main_category = section.find_element(By.XPATH, ".//h2").text.strip()
+
+            print(f"\nScraping main category: {main_category}")
+
+            # Find all products in this category
+            products = section.find_elements(By.XPATH, ".//li[contains(@class, 'slider__slide')]")
+            print(f"Found {len(products)} products in {main_category}")
+
+            for product in products:
+                try:
+                    # Product Name
+                    try:
+                        name = product.find_element(By.XPATH, ".//h3[contains(@class, 'card__heading')]").text.strip()
+                        if not name:
+                            name = product.find_element(By.XPATH, ".//h3").text.strip()
+                        name = name.replace('"', "'")
+                    except:
+                        name = "N/A"
+
+                    # Product Category (brand)
+                    try:
+                        product_category = product.find_element(By.XPATH, ".//div[contains(@class, 'product__vendor')]").text.strip()
+                    except:
+                        product_category = "N/A"
+
+                    # Prices
+                    try:
+                        current_price = product.find_element(By.XPATH, ".//span[contains(@class, 'price-item--sale') or contains(@class, 'card_sale_price')]").text.strip()
+                    except:
+                        current_price = "N/A"
+
+                    try:
+                        original_price = product.find_element(By.XPATH, ".//small[contains(@class, 'card_compare_price')]").text.strip()
+                        if not original_price:
+                            original_price = current_price  # If no sale, original = current
+                    except:
+                        original_price = current_price
+
+                    # Add to product data
+                    product_data.append({
+                        'Main Category': main_category,
+                        'Subcategory': "N/A",  # Explicitly set to N/A
+                        'Product Category': product_category,
+                        'Product Name': name,
+                        'Current Price': current_price,
+                        'Original Price': original_price
+                    })
+
+                except Exception as e:
+                    print(f"Error processing product in {main_category}: {e}")
+                    continue
+
+        except Exception as e:
+            print(f"Error processing category section: {e}")
+            continue
+
+    driver.quit()
+
+    # Save results
+    if product_data:
+        os.makedirs(folder_name, exist_ok=True)
+        df = pd.DataFrame(product_data)
+        df.to_csv(os.path.join(folder_name, "products.csv"), index=False)
+        print(f"\nSuccessfully extracted {len(product_data)} products")
+        return df
+    else:
+        print("No products found")
+        return None
+    
 def extract_keywords(url, folder_name):
     soup = fetch_html(url)
     if not soup:

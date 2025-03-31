@@ -1,0 +1,413 @@
+2025-03-31 00:47:35,181 - INFO - ====== WebDriver manager ======
+2025-03-31 00:47:36,205 - INFO - Keywords extracted and saved successfully.
+2025-03-31 00:47:36,215 - INFO - Meta data extracted successfully and saved to csv\meta_data.csv
+2025-03-31 00:47:37,343 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 00:47:37,573 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 00:47:37,773 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 00:47:38,297 - INFO - WebDriver version 134.0.6998.165 selected
+2025-03-31 00:47:38,297 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/134.0.6998.165/win32/chromedriver-win32.zip
+2025-03-31 00:47:38,297 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/134.0.6998.165/win32/chromedriver-win32.zip
+2025-03-31 00:47:38,476 - INFO - Driver downloading response is 200
+2025-03-31 00:48:02,996 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 00:48:03,313 - INFO - Driver has been saved in cache [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165]
+2025-03-31 01:01:11,345 - INFO - ====== WebDriver manager ======
+2025-03-31 01:01:11,384 - INFO - Keywords extracted and saved successfully.
+2025-03-31 01:01:11,745 - INFO - Meta data extracted successfully and saved to csv\meta_data.csv
+2025-03-31 01:01:13,268 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 01:01:13,465 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 01:01:13,667 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 01:05:37,586 - INFO - Keywords extracted and saved successfully.
+2025-03-31 01:05:39,803 - INFO - Meta data extracted successfully and saved to csv\meta_data.csv
+2025-03-31 01:05:39,939 - INFO - ====== WebDriver manager ======
+2025-03-31 01:05:41,521 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 01:05:41,709 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 01:05:41,907 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 01:31:56,931 - INFO - ====== WebDriver manager ======
+2025-03-31 01:31:57,916 - INFO - Keywords extracted and saved successfully.
+2025-03-31 01:31:57,917 - INFO - Meta data extracted successfully and saved to csv\meta_data.csv
+2025-03-31 01:31:59,177 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 01:31:59,370 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 01:31:59,565 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 01:49:55,569 - INFO - ====== WebDriver manager ======
+2025-03-31 01:49:56,577 - INFO - Meta data extracted successfully and saved to csv\meta_data.csv
+2025-03-31 01:49:56,592 - INFO - Keywords extracted and saved successfully.
+2025-03-31 01:49:57,943 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 01:49:58,230 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 01:49:58,425 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 01:51:12,806 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D12BAE4560>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/5b871a67af3535f248a76a26642cb1b1/element
+2025-03-31 01:51:16,910 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D130230200>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/5b871a67af3535f248a76a26642cb1b1/element
+2025-03-31 01:51:21,025 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D130230680>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/5b871a67af3535f248a76a26642cb1b1/element
+2025-03-31 01:51:29,237 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D1302300B0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/5b871a67af3535f248a76a26642cb1b1/element/f.639CA6EE8A1A3C0682431361C74FD2CE.d.8099458000D495E17FFD820F5A0B02AC.e.190/text
+2025-03-31 01:51:33,367 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D130230CB0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/5b871a67af3535f248a76a26642cb1b1/element/f.639CA6EE8A1A3C0682431361C74FD2CE.d.8099458000D495E17FFD820F5A0B02AC.e.190/text
+2025-03-31 01:51:37,495 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D130230E60>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/5b871a67af3535f248a76a26642cb1b1/element/f.639CA6EE8A1A3C0682431361C74FD2CE.d.8099458000D495E17FFD820F5A0B02AC.e.190/text
+2025-03-31 01:51:45,714 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D1302312E0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/5b871a67af3535f248a76a26642cb1b1/element/f.639CA6EE8A1A3C0682431361C74FD2CE.d.8099458000D495E17FFD820F5A0B02AC.e.109/element
+2025-03-31 01:51:49,835 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D13021FD40>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/5b871a67af3535f248a76a26642cb1b1/element/f.639CA6EE8A1A3C0682431361C74FD2CE.d.8099458000D495E17FFD820F5A0B02AC.e.109/element
+2025-03-31 01:51:53,948 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D130230E30>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/5b871a67af3535f248a76a26642cb1b1/element/f.639CA6EE8A1A3C0682431361C74FD2CE.d.8099458000D495E17FFD820F5A0B02AC.e.109/element
+2025-03-31 01:52:02,166 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D130230BC0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/5b871a67af3535f248a76a26642cb1b1/element/f.639CA6EE8A1A3C0682431361C74FD2CE.d.8099458000D495E17FFD820F5A0B02AC.e.110/element
+2025-03-31 01:52:06,279 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D1302307D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/5b871a67af3535f248a76a26642cb1b1/element/f.639CA6EE8A1A3C0682431361C74FD2CE.d.8099458000D495E17FFD820F5A0B02AC.e.110/element
+2025-03-31 01:52:10,381 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D130230800>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/5b871a67af3535f248a76a26642cb1b1/element/f.639CA6EE8A1A3C0682431361C74FD2CE.d.8099458000D495E17FFD820F5A0B02AC.e.110/element
+2025-03-31 01:52:18,609 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D130231400>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/5b871a67af3535f248a76a26642cb1b1
+2025-03-31 01:52:22,734 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D1302315E0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/5b871a67af3535f248a76a26642cb1b1
+2025-03-31 01:52:26,842 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001D130231790>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/5b871a67af3535f248a76a26642cb1b1
+2025-03-31 01:53:05,271 - INFO - Meta data extracted successfully and saved to csv\meta_data.csv
+2025-03-31 01:53:05,384 - INFO - Keywords extracted and saved successfully.
+2025-03-31 01:53:05,384 - INFO - ====== WebDriver manager ======
+2025-03-31 01:53:07,188 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 01:53:07,372 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 01:53:07,581 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 02:03:10,547 - INFO - Keywords extracted and saved successfully.
+2025-03-31 02:03:10,825 - INFO - Meta data extracted successfully and saved to csv\meta_data.csv
+2025-03-31 02:03:10,868 - INFO - ====== WebDriver manager ======
+2025-03-31 02:03:12,536 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 02:03:12,727 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 02:03:12,916 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 02:19:14,130 - INFO - Meta data extracted successfully and saved to csv\meta_data.csv
+2025-03-31 02:19:14,803 - INFO - ====== WebDriver manager ======
+2025-03-31 02:19:15,416 - INFO - Keywords extracted and saved successfully.
+2025-03-31 02:19:16,869 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 02:19:17,063 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 02:19:17,251 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 02:54:09,816 - INFO - Meta data extracted successfully and saved to 1\meta_data.csv
+2025-03-31 02:54:09,816 - INFO - ====== WebDriver manager ======
+2025-03-31 02:54:09,841 - INFO - Keywords extracted and saved successfully.
+2025-03-31 02:54:11,590 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 02:54:11,846 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 02:54:12,044 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 02:57:15,159 - INFO - ====== WebDriver manager ======
+2025-03-31 02:57:16,034 - INFO - Keywords extracted and saved successfully.
+2025-03-31 02:57:16,372 - INFO - Meta data extracted successfully and saved to 2\meta_data.csv
+2025-03-31 02:57:17,394 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 02:57:17,571 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 02:57:17,766 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 03:02:33,436 - INFO - Keywords extracted and saved successfully.
+2025-03-31 03:02:33,436 - INFO - Meta data extracted successfully and saved to 3\meta_data.csv
+2025-03-31 03:02:33,438 - INFO - ====== WebDriver manager ======
+2025-03-31 03:02:35,188 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 03:02:35,376 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 03:02:35,563 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 03:13:20,896 - INFO - ====== WebDriver manager ======
+2025-03-31 03:13:21,906 - INFO - Meta data extracted successfully and saved to 4\meta_data.csv
+2025-03-31 03:13:22,024 - INFO - Keywords extracted and saved successfully.
+2025-03-31 03:13:23,664 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 03:13:23,876 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 03:13:24,100 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 03:18:58,867 - INFO - ====== WebDriver manager ======
+2025-03-31 03:18:58,898 - INFO - Keywords extracted and saved successfully.
+2025-03-31 03:18:59,053 - INFO - Meta data extracted successfully and saved to 5\meta_data.csv
+2025-03-31 03:19:00,673 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 03:19:00,864 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 03:19:01,047 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 03:31:26,862 - INFO - ====== WebDriver manager ======
+2025-03-31 03:31:26,862 - INFO - Keywords extracted and saved successfully.
+2025-03-31 03:31:27,085 - INFO - Meta data extracted successfully and saved to 6\meta_data.csv
+2025-03-31 03:31:28,802 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 03:31:28,993 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 03:31:29,188 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 03:39:54,853 - INFO - Meta data extracted successfully and saved to 7\meta_data.csv
+2025-03-31 03:39:55,327 - INFO - Keywords extracted and saved successfully.
+2025-03-31 03:39:55,456 - INFO - ====== WebDriver manager ======
+2025-03-31 03:39:57,170 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 03:39:57,357 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 03:39:57,537 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 03:49:13,421 - INFO - Meta data extracted successfully and saved to 8\meta_data.csv
+2025-03-31 03:49:13,426 - INFO - Keywords extracted and saved successfully.
+2025-03-31 03:49:13,443 - INFO - ====== WebDriver manager ======
+2025-03-31 03:49:15,126 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 03:49:15,311 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 03:49:15,496 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 04:03:57,026 - INFO - Meta data extracted successfully and saved to 9\meta_data.csv
+2025-03-31 04:03:57,348 - INFO - Keywords extracted and saved successfully.
+2025-03-31 04:03:57,409 - INFO - ====== WebDriver manager ======
+2025-03-31 04:03:59,649 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 04:03:59,962 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 04:04:00,152 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 04:16:15,154 - INFO - Meta data extracted successfully and saved to 10\meta_data.csv
+2025-03-31 04:16:15,218 - INFO - ====== WebDriver manager ======
+2025-03-31 04:16:15,239 - INFO - Keywords extracted and saved successfully.
+2025-03-31 04:16:17,056 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 04:16:17,240 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 04:16:17,428 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 04:29:46,362 - INFO - ====== WebDriver manager ======
+2025-03-31 04:29:46,718 - INFO - Meta data extracted successfully and saved to 1\meta_data.csv
+2025-03-31 04:29:46,727 - INFO - Keywords extracted and saved successfully.
+2025-03-31 04:29:48,351 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 04:29:48,539 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 04:29:48,723 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 04:38:07,095 - INFO - Meta data extracted successfully and saved to 2\meta_data.csv
+2025-03-31 04:38:07,159 - INFO - Keywords extracted and saved successfully.
+2025-03-31 04:38:07,164 - INFO - ====== WebDriver manager ======
+2025-03-31 04:38:09,015 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 04:38:09,205 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 04:38:09,392 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 04:53:32,912 - INFO - Meta data extracted successfully and saved to 3\meta_data.csv
+2025-03-31 04:53:33,460 - INFO - ====== WebDriver manager ======
+2025-03-31 04:53:33,866 - INFO - Keywords extracted and saved successfully.
+2025-03-31 04:53:35,305 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 04:53:35,496 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 04:53:35,682 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 05:07:15,956 - INFO - Meta data extracted successfully and saved to 4\meta_data.csv
+2025-03-31 05:07:15,956 - INFO - ====== WebDriver manager ======
+2025-03-31 05:07:15,976 - INFO - Keywords extracted and saved successfully.
+2025-03-31 05:07:17,526 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 05:07:17,765 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 05:07:17,956 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 05:15:12,570 - INFO - ====== WebDriver manager ======
+2025-03-31 05:15:13,141 - INFO - Meta data extracted successfully and saved to 5\meta_data.csv
+2025-03-31 05:15:13,158 - INFO - Keywords extracted and saved successfully.
+2025-03-31 05:15:14,696 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 05:15:14,881 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 05:15:15,071 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 05:20:06,805 - INFO - ====== WebDriver manager ======
+2025-03-31 05:20:06,871 - INFO - Meta data extracted successfully and saved to 6\meta_data.csv
+2025-03-31 05:20:07,179 - INFO - Keywords extracted and saved successfully.
+2025-03-31 05:20:08,695 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 05:20:08,881 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 05:20:09,067 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 05:23:16,704 - INFO - Meta data extracted successfully and saved to 7\meta_data.csv
+2025-03-31 05:23:17,253 - INFO - ====== WebDriver manager ======
+2025-03-31 05:23:17,255 - INFO - Keywords extracted and saved successfully.
+2025-03-31 05:23:18,826 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 05:23:19,021 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 05:23:19,209 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 05:31:07,184 - INFO - Keywords extracted and saved successfully.
+2025-03-31 05:31:07,383 - INFO - ====== WebDriver manager ======
+2025-03-31 05:31:07,393 - INFO - Meta data extracted successfully and saved to 8\meta_data.csv
+2025-03-31 05:31:08,896 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 05:31:09,109 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 05:31:09,301 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 05:34:17,163 - INFO - Meta data extracted successfully and saved to csv\meta_data.csv
+2025-03-31 05:34:17,327 - INFO - ====== WebDriver manager ======
+2025-03-31 05:34:17,417 - INFO - Keywords extracted and saved successfully.
+2025-03-31 05:34:19,073 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 05:34:19,257 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 05:34:19,447 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 05:40:32,485 - INFO - Meta data extracted successfully and saved to 11\meta_data.csv
+2025-03-31 05:40:32,492 - INFO - ====== WebDriver manager ======
+2025-03-31 05:40:33,028 - INFO - Keywords extracted and saved successfully.
+2025-03-31 05:40:34,325 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 05:40:34,516 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 05:40:34,705 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 05:48:57,160 - INFO - Keywords extracted and saved successfully.
+2025-03-31 05:48:57,621 - INFO - ====== WebDriver manager ======
+2025-03-31 05:48:57,965 - INFO - Meta data extracted successfully and saved to 12\meta_data.csv
+2025-03-31 05:48:59,385 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 05:48:59,580 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 05:48:59,762 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 05:52:04,674 - INFO - Meta data extracted successfully and saved to 13\meta_data.csv
+2025-03-31 05:52:04,674 - INFO - ====== WebDriver manager ======
+2025-03-31 05:52:04,696 - INFO - Keywords extracted and saved successfully.
+2025-03-31 05:52:06,256 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 05:52:06,451 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 05:52:06,647 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 06:00:24,049 - INFO - Meta data extracted successfully and saved to 14\meta_data.csv
+2025-03-31 06:00:24,097 - INFO - ====== WebDriver manager ======
+2025-03-31 06:00:24,624 - INFO - Keywords extracted and saved successfully.
+2025-03-31 06:00:25,944 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 06:00:26,135 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 06:00:26,328 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 06:00:47,043 - INFO - ====== WebDriver manager ======
+2025-03-31 06:00:47,077 - INFO - Meta data extracted successfully and saved to 15\meta_data.csv
+2025-03-31 06:00:47,171 - INFO - Keywords extracted and saved successfully.
+2025-03-31 06:00:48,707 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 06:00:48,899 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 06:00:49,074 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 06:03:20,592 - INFO - ====== WebDriver manager ======
+2025-03-31 06:03:20,880 - INFO - Keywords extracted and saved successfully.
+2025-03-31 06:03:20,892 - INFO - Meta data extracted successfully and saved to 16\meta_data.csv
+2025-03-31 06:03:22,326 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 06:03:22,507 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 06:03:22,699 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 06:08:06,852 - INFO - Meta data extracted successfully and saved to 17\meta_data.csv
+2025-03-31 06:08:06,852 - INFO - ====== WebDriver manager ======
+2025-03-31 06:08:07,034 - INFO - Keywords extracted and saved successfully.
+2025-03-31 06:08:08,483 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 06:08:08,733 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 06:08:08,926 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 06:20:28,684 - INFO - ====== WebDriver manager ======
+2025-03-31 06:20:28,684 - INFO - Keywords extracted and saved successfully.
+2025-03-31 06:20:28,706 - INFO - Meta data extracted successfully and saved to 18\meta_data.csv
+2025-03-31 06:20:30,538 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 06:20:30,731 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 06:20:30,921 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 06:32:06,381 - INFO - Meta data extracted successfully and saved to 19\meta_data.csv
+2025-03-31 06:32:06,386 - INFO - ====== WebDriver manager ======
+2025-03-31 06:32:06,400 - INFO - Keywords extracted and saved successfully.
+2025-03-31 06:32:07,920 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 06:32:08,105 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 06:32:08,293 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 06:38:49,886 - INFO - ====== WebDriver manager ======
+2025-03-31 06:38:49,960 - INFO - Keywords extracted and saved successfully.
+2025-03-31 06:38:50,052 - INFO - Meta data extracted successfully and saved to 20\meta_data.csv
+2025-03-31 06:38:51,597 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 06:38:51,796 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 06:38:51,988 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 06:46:03,608 - INFO - Meta data extracted successfully and saved to 21\meta_data.csv
+2025-03-31 06:46:03,917 - INFO - ====== WebDriver manager ======
+2025-03-31 06:46:03,931 - INFO - Keywords extracted and saved successfully.
+2025-03-31 06:46:05,516 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 06:46:05,708 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 06:46:05,906 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 06:46:41,176 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425D2B0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.308/element
+2025-03-31 06:46:45,260 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425D940>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.308/element
+2025-03-31 06:46:49,330 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425DB20>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.308/element
+2025-03-31 06:46:57,431 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425E000>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.308/element
+2025-03-31 06:47:01,526 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425E270>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.308/element
+2025-03-31 06:47:05,617 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BE9ECAF4A0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.308/element
+2025-03-31 06:47:13,760 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425DBB0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.308/element
+2025-03-31 06:47:17,825 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425C650>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.308/element
+2025-03-31 06:47:21,890 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425D850>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.308/element
+2025-03-31 06:47:30,020 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425E750>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.309/element
+2025-03-31 06:47:34,074 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425E9C0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.309/element
+2025-03-31 06:47:38,161 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425EC00>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.309/element
+2025-03-31 06:47:46,312 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425F140>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.309/element
+2025-03-31 06:47:50,374 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425F3B0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.309/element
+2025-03-31 06:47:54,446 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425F5F0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.309/element
+2025-03-31 06:48:02,631 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425FB30>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.309/element
+2025-03-31 06:48:06,747 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425F020>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.309/element
+2025-03-31 06:48:10,824 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425F590>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.309/element
+2025-03-31 06:48:18,980 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425F260>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.310/element
+2025-03-31 06:48:23,059 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425E720>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.310/element
+2025-03-31 06:48:27,142 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425ECF0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.310/element
+2025-03-31 06:48:35,229 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425E780>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.310/element
+2025-03-31 06:48:39,324 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425DB20>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.310/element
+2025-03-31 06:48:43,407 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425CAD0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.310/element
+2025-03-31 06:48:51,558 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425DB80>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.310/element
+2025-03-31 06:48:55,663 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425D8E0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.310/element
+2025-03-31 06:48:59,730 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425CCB0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.310/element
+2025-03-31 06:49:07,901 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425D640>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.311/element
+2025-03-31 06:49:11,973 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425D520>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.311/element
+2025-03-31 06:49:16,031 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425D6A0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.311/element
+2025-03-31 06:49:24,174 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425DBE0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.311/element
+2025-03-31 06:49:28,237 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425D8B0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.311/element
+2025-03-31 06:49:32,334 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BEA425DCD0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/4f04a1e30cee3b757e9858841ed5ffd7/element/f.529BE1119879393E5D541C8B1F1E1A11.d.5F09C95853D52697D4E042CA3877E29B.e.311/element
+2025-03-31 06:49:54,556 - INFO - Meta data extracted successfully and saved to 22\meta_data.csv
+2025-03-31 06:49:54,808 - INFO - Keywords extracted and saved successfully.
+2025-03-31 06:49:54,831 - INFO - ====== WebDriver manager ======
+2025-03-31 06:49:56,825 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 06:49:57,015 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 06:49:57,208 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 06:54:46,708 - INFO - Meta data extracted successfully and saved to 23\meta_data.csv
+2025-03-31 06:54:46,730 - INFO - Keywords extracted and saved successfully.
+2025-03-31 06:54:46,825 - INFO - ====== WebDriver manager ======
+2025-03-31 06:54:48,381 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 06:54:48,563 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 06:54:48,771 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 11:26:40,192 - INFO - Meta data extracted successfully and saved to 24\meta_data.csv
+2025-03-31 11:26:40,453 - INFO - ====== WebDriver manager ======
+2025-03-31 11:26:40,453 - INFO - Keywords extracted and saved successfully.
+2025-03-31 11:26:42,402 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 11:26:42,663 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 11:26:42,847 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 11:29:54,409 - INFO - ====== WebDriver manager ======
+2025-03-31 11:29:54,959 - INFO - Meta data extracted successfully and saved to 25\meta_data.csv
+2025-03-31 11:29:55,538 - INFO - Keywords extracted and saved successfully.
+2025-03-31 11:29:56,621 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 11:29:56,797 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 11:29:57,001 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 11:30:37,755 - INFO - Meta data extracted successfully and saved to 26\meta_data.csv
+2025-03-31 11:30:38,101 - INFO - Keywords extracted and saved successfully.
+2025-03-31 11:30:38,116 - INFO - ====== WebDriver manager ======
+2025-03-31 11:30:39,655 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 11:30:39,841 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 11:30:40,071 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 12:36:21,470 - INFO - ====== WebDriver manager ======
+2025-03-31 12:36:21,470 - INFO - Keywords extracted and saved successfully.
+2025-03-31 12:36:22,629 - INFO - Meta data extracted successfully and saved to 2\meta_data.csv
+2025-03-31 12:36:23,183 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 12:36:23,430 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 12:36:23,623 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 12:36:57,914 - INFO - Keywords extracted and saved successfully.
+2025-03-31 12:36:57,977 - INFO - Meta data extracted successfully and saved to 3\meta_data.csv
+2025-03-31 12:36:58,138 - INFO - ====== WebDriver manager ======
+2025-03-31 12:36:59,675 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 12:36:59,849 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 12:37:00,047 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 12:38:34,079 - INFO - Meta data extracted successfully and saved to 4\meta_data.csv
+2025-03-31 12:38:34,226 - INFO - Keywords extracted and saved successfully.
+2025-03-31 12:38:34,241 - INFO - ====== WebDriver manager ======
+2025-03-31 12:38:35,844 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 12:38:36,036 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 12:38:36,221 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 12:41:36,178 - INFO - Meta data extracted successfully and saved to 5\meta_data.csv
+2025-03-31 12:41:36,226 - INFO - Keywords extracted and saved successfully.
+2025-03-31 12:41:36,241 - INFO - ====== WebDriver manager ======
+2025-03-31 12:41:37,811 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 12:41:38,001 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 12:41:38,178 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 13:13:36,266 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPConnectionPool(host='localhost', port=59965): Read timed out. (read timeout=120)")': /session/4006bd6ef7e9549ad53e98ede1af4887/element/f.A07205CB0590189EE8C0D3428AB310A5.d.A2D85D6796BAF0EC2648618BA78F37F9.e.1943/text
+2025-03-31 15:33:20,180 - INFO - Meta data extracted successfully and saved to 6\meta_data.csv
+2025-03-31 15:33:20,188 - INFO - ====== WebDriver manager ======
+2025-03-31 15:33:20,204 - INFO - Keywords extracted and saved successfully.
+2025-03-31 15:33:22,631 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 15:33:22,885 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 15:33:23,079 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 15:34:46,401 - INFO - Meta data extracted successfully and saved to 7\meta_data.csv
+2025-03-31 15:34:46,424 - INFO - Keywords extracted and saved successfully.
+2025-03-31 15:34:46,424 - INFO - ====== WebDriver manager ======
+2025-03-31 15:34:48,931 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 15:34:49,140 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 15:34:49,333 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 15:57:57,661 - INFO - Meta data extracted successfully and saved to 8\meta_data.csv
+2025-03-31 15:57:57,675 - INFO - Keywords extracted and saved successfully.
+2025-03-31 15:57:57,678 - INFO - ====== WebDriver manager ======
+2025-03-31 15:57:59,755 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 15:58:00,784 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 15:58:02,001 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 16:02:19,698 - INFO - ====== WebDriver manager ======
+2025-03-31 16:02:21,882 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 16:02:22,087 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 16:02:23,549 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 16:03:51,093 - INFO - Keywords extracted and saved successfully.
+2025-03-31 16:03:51,818 - INFO - ====== WebDriver manager ======
+2025-03-31 16:03:51,915 - INFO - Meta data extracted successfully and saved to 9\meta_data.csv
+2025-03-31 16:03:54,039 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 16:03:54,232 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 16:03:54,421 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 16:05:14,974 - INFO - Meta data extracted successfully and saved to 10\meta_data.csv
+2025-03-31 16:05:14,985 - INFO - ====== WebDriver manager ======
+2025-03-31 16:05:15,000 - INFO - Keywords extracted and saved successfully.
+2025-03-31 16:05:17,037 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 16:05:17,243 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 16:05:17,432 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 16:13:11,023 - INFO - ====== WebDriver manager ======
+2025-03-31 16:13:11,120 - INFO - Keywords extracted and saved successfully.
+2025-03-31 16:13:11,214 - INFO - Meta data extracted successfully and saved to 11\meta_data.csv
+2025-03-31 16:13:13,089 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 16:13:13,286 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 16:13:13,481 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 16:19:32,940 - INFO - Meta data extracted successfully and saved to 12\meta_data.csv
+2025-03-31 16:19:33,019 - INFO - Keywords extracted and saved successfully.
+2025-03-31 16:19:33,051 - INFO - ====== WebDriver manager ======
+2025-03-31 16:19:35,074 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 16:19:35,264 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 16:19:35,511 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 16:31:53,161 - INFO - Meta data extracted successfully and saved to 13\meta_data.csv
+2025-03-31 16:31:53,293 - INFO - Keywords extracted and saved successfully.
+2025-03-31 16:31:53,464 - INFO - ====== WebDriver manager ======
+2025-03-31 16:31:55,861 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 16:31:56,049 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 16:31:56,247 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 16:34:24,776 - INFO - Meta data extracted successfully and saved to 14\meta_data.csv
+2025-03-31 16:34:25,588 - INFO - ====== WebDriver manager ======
+2025-03-31 16:34:25,588 - INFO - Keywords extracted and saved successfully.
+2025-03-31 16:34:27,579 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 16:34:27,859 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 16:34:28,055 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 22:32:24,369 - INFO - ====== WebDriver manager ======
+2025-03-31 22:32:26,330 - INFO - Meta data extracted successfully and saved to 15\meta_data.csv
+2025-03-31 22:32:26,815 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 22:32:27,161 - INFO - Keywords extracted and saved successfully.
+2025-03-31 22:32:30,480 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 22:32:47,881 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 22:50:27,657 - INFO - Keywords extracted and saved successfully.
+2025-03-31 22:50:27,768 - INFO - ====== WebDriver manager ======
+2025-03-31 22:50:27,768 - INFO - Meta data extracted successfully and saved to 16\meta_data.csv
+2025-03-31 22:50:29,401 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 22:50:29,933 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 22:50:31,374 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-03-31 22:56:20,739 - INFO - Meta data extracted successfully and saved to 17\meta_data.csv
+2025-03-31 22:56:25,458 - INFO - Keywords extracted and saved successfully.
+2025-03-31 22:56:26,793 - INFO - ====== WebDriver manager ======
+2025-03-31 22:56:28,340 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 22:56:28,930 - INFO - Get LATEST chromedriver version for google-chrome
+2025-03-31 22:56:29,581 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
