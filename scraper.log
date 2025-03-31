@@ -1,0 +1,18 @@
+2025-03-31 10:39:17,764 - INFO - Keywords extracted successfully
+2025-03-31 10:39:18,249 - INFO - Headings and strong words extracted successfully
+2025-03-31 10:39:18,259 - INFO - Meta data extracted successfully
+2025-03-31 10:40:43,166 - INFO - Meta data extracted successfully and saved to data_extracted_hamdan_electronics\meta_data.csv
+2025-03-31 10:40:43,167 - INFO - Keywords extracted and saved successfully.
+2025-03-31 10:42:53,133 - INFO - Headings and strong words extracted successfully
+2025-03-31 10:42:53,167 - INFO - Keywords extracted successfully
+2025-03-31 10:42:53,167 - INFO - Meta data extracted successfully
+2025-03-31 10:47:14,917 - ERROR - Error fetching data_2: Invalid URL 'data_2': No scheme supplied. Perhaps you meant https://data_2?
+2025-03-31 10:47:14,918 - ERROR - Error fetching data_2: Invalid URL 'data_2': No scheme supplied. Perhaps you meant https://data_2?
+2025-03-31 10:47:14,918 - ERROR - Error fetching data_2: Invalid URL 'data_2': No scheme supplied. Perhaps you meant https://data_2?
+2025-03-31 10:47:14,918 - ERROR - Error fetching data_2: Invalid URL 'data_2': No scheme supplied. Perhaps you meant https://data_2?
+2025-03-31 10:47:39,284 - INFO - Headings and strong words extracted successfully
+2025-03-31 10:47:39,488 - INFO - Meta data extracted successfully
+2025-03-31 10:47:39,491 - INFO - Keywords extracted successfully
+2025-03-31 10:57:07,356 - INFO - Keywords extracted successfully
+2025-03-31 10:57:07,387 - INFO - Meta data extracted successfully
+2025-03-31 10:57:07,467 - INFO - Headings and strong words extracted successfully

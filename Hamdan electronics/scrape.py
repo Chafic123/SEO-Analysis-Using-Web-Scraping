@@ -7,6 +7,7 @@ import os
 import threading
 import logging
 from sklearn.feature_extraction.text import TfidfVectorizer
+from urllib.parse import urlparse
 import nltk
 from nltk.corpus import stopwords
 
@@ -40,6 +41,31 @@ def extract_meta_data(url, folder_name):
     df = pd.DataFrame({"Title": [title], "Meta Description": [meta_desc], "Meta Keywords": [", ".join(meta_keywords)]})
     df.to_csv(os.path.join(folder_name, "meta_data.csv"), index=False)
     logging.info("Meta data extracted successfully")
+
+def extract_backlinks(url, folder_name):
+    try:
+        soup = fetch_html(url)
+        if not soup:
+            return
+
+        links = [a_tag['href'] for a_tag in soup.find_all('a', href=True)]
+
+        parsed_base_url = urlparse(url)
+        base_domain = parsed_base_url.netloc
+        backlinks = [link for link in links if urlparse(link).netloc and urlparse(link).netloc != base_domain]
+
+        # Ensure folder exists
+        os.makedirs(folder_name, exist_ok=True)
+
+        # Save data
+        file_path = os.path.join(folder_name, "backlinks.csv")
+        df_links = pd.DataFrame(backlinks, columns=['Link'])
+        df_links.to_csv(file_path, index=False)
+
+        print(f"External links saved to {file_path}")
+
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
 
 def extract_headings_and_strong_words(url, folder_name):
     soup = fetch_html(url)
@@ -87,7 +113,8 @@ if __name__ == "__main__":
     threads = [
         threading.Thread(target=extract_meta_data, args=(url, folder_name)),
         threading.Thread(target=extract_headings_and_strong_words, args=(url, folder_name)),
-        threading.Thread(target=extract_keywords, args=(url, folder_name))
+        threading.Thread(target=extract_keywords, args=(url, folder_name)),
+        threading.Thread(target=extract_backlinks, args=(url, folder_name)),
     ]
     
     for thread in threads:
