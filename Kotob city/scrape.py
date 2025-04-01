@@ -128,11 +128,14 @@ def extract_headings_and_strong_words(url, folder_name):
             print(f"Error processing menu item: {e}")
             continue
     
-    # Create DataFrame and save to CSV
-    df = pd.DataFrame(data)
-    os.makedirs(folder_name, exist_ok=True)
-    df.to_csv(os.path.join(folder_name, "navbar_data.csv"), index=False)
-    print("Navbar data extracted successfully")
+        if data:
+            # Create DataFrame and save to CSV
+            df = pd.DataFrame(data)
+            os.makedirs(folder_name, exist_ok=True)
+            df.to_csv(os.path.join(folder_name, "navbar_data.csv"), index=False)
+            print("Navbar data extracted successfully")
+        else:
+            print("No data was collected from the page")
 
     # Set up Chrome options
     options = webdriver.ChromeOptions()

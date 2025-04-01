@@ -29,3 +29,43 @@
 2025-03-31 01:14:22,355 - INFO - Get LATEST chromedriver version for google-chrome
 2025-03-31 01:14:22,556 - INFO - Get LATEST chromedriver version for google-chrome
 2025-03-31 01:14:22,743 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-01 23:38:09,114 - INFO - ====== WebDriver manager ======
+2025-04-01 23:38:10,990 - INFO - Keywords extracted successfully
+2025-04-01 23:38:11,432 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-01 23:38:11,911 - INFO - Meta data extracted successfully and saved to csv\meta_data.csv
+2025-04-01 23:38:24,659 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-01 23:38:26,093 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-01 23:40:22,467 - INFO - ====== WebDriver manager ======
+2025-04-01 23:40:24,486 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-01 23:40:27,433 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-01 23:40:32,554 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-01 23:45:50,398 - INFO - ====== WebDriver manager ======
+2025-04-01 23:45:52,367 - INFO - Meta data extracted successfully and saved to csv\meta_data.csv
+2025-04-01 23:45:52,367 - INFO - Keywords extracted successfully
+2025-04-01 23:45:52,901 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-01 23:45:53,481 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-01 23:45:54,807 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-01 23:47:23,311 - INFO - ====== WebDriver manager ======
+2025-04-01 23:47:25,393 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-01 23:47:26,249 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-01 23:48:17,140 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-01 23:49:10,938 - INFO - ====== WebDriver manager ======
+2025-04-01 23:49:12,612 - INFO - Keywords extracted successfully
+2025-04-01 23:49:13,382 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-01 23:49:13,384 - INFO - Meta data extracted successfully and saved to csv\meta_data.csv
+2025-04-01 23:49:20,323 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-01 23:49:20,846 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-01 23:53:21,836 - INFO - ====== WebDriver manager ======
+2025-04-01 23:53:24,088 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-01 23:53:30,601 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-01 23:53:31,131 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-01 23:56:15,241 - INFO - ====== WebDriver manager ======
+2025-04-01 23:56:17,229 - INFO - Meta data extracted successfully and saved to csv\meta_data.csv
+2025-04-01 23:56:17,658 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-01 23:56:19,913 - INFO - Keywords extracted successfully
+2025-04-01 23:56:22,702 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-01 23:56:25,584 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-01 23:58:31,791 - INFO - ====== WebDriver manager ======
+2025-04-01 23:58:33,805 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-01 23:58:42,318 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-01 23:58:42,844 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache

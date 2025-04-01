@@ -17,6 +17,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
+from datetime import datetime
+from urllib.parse import urlparse
 
 logging.basicConfig(filename="scraper.log", level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
@@ -65,6 +67,49 @@ def extract_meta_data(url, folder_name):
         df.to_csv(file_path, index=False)
 
         logging.info(f"Meta data extracted successfully and saved to {file_path}")
+
+def extract_backlinks(url, folder_name):
+    try:
+        soup = fetch_html(url)
+        if not soup:
+            return
+            
+        # Find the footer social media section
+        social_section = soup.find('div', class_='footer__column footer--social')
+        
+        if social_section:
+            # Extract all social media links
+            social_links = []
+            for item in social_section.find_all('li', class_='list-social__item'):
+                link = item.find('a', href=True)
+                if link:
+                    # Get the platform name from visually-hidden span or from URL
+                    platform = link.find('span', class_='visually-hidden')
+                    platform_name = platform.text.strip() if platform else link['href'].split('.')[1].capitalize()
+                    
+                    social_links.append({
+                        'Platform': platform_name,
+                        'URL': link['href']
+                    })
+            
+            # Ensure folder exists
+            os.makedirs(folder_name, exist_ok=True)
+            
+            # Save data
+            file_path = os.path.join(folder_name, "social_links.csv")
+            df_links = pd.DataFrame(social_links)
+            df_links.to_csv(file_path, index=False)
+            print(f"Social media links saved to {file_path}")
+            
+            return df_links
+        else:
+            print("No social media section found in footer")
+            return None
+            
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+        return None
+
 
 def extract_headings_and_strong_words(url, folder_name):
     options = webdriver.ChromeOptions()
@@ -187,6 +232,7 @@ def extract_headings_and_strong_words(url, folder_name):
         pass
 
     product_data = []
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     # Find all category sections with sliders
     category_sections = driver.find_elements(By.XPATH, "//slider-component[contains(@class, 'slider-component-desktop')]")
@@ -237,6 +283,7 @@ def extract_headings_and_strong_words(url, folder_name):
 
                     # Add to product data
                     product_data.append({
+                        'Timestamp': timestamp,
                         'Main Category': main_category,
                         'Subcategory': "N/A",  # Explicitly set to N/A
                         'Product Category': product_category,
@@ -296,7 +343,8 @@ if __name__ == "__main__":
     threads = [
         threading.Thread(target=extract_meta_data, args=(url, folder_name)),
         threading.Thread(target=extract_headings_and_strong_words, args=(url, folder_name)),
-        threading.Thread(target=extract_keywords, args=(url, folder_name))
+        threading.Thread(target=extract_keywords, args=(url, folder_name)),
+        threading.Thread(target=extract_backlinks, args=(url, folder_name)),
     ]
     
     for thread in threads:

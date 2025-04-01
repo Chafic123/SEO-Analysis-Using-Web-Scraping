@@ -18,6 +18,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
+from datetime import datetime
 
 
 from webdriver_manager.chrome import ChromeDriverManager
@@ -90,63 +91,90 @@ def extract_backlinks(url, folder_name):
         print(f"An unexpected error occurred: {e}")
 
 def extract_headings_and_strong_words(url, folder_name):
-    options = webdriver.ChromeOptions()
-    options.add_argument("--headless")  # Run in headless mode
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
-    # Initialize data list
+    options = webdriver.ChromeOptions()
+    options.add_argument("--start-maximized") 
+    options.add_argument("--headless")
+    
+    # Initialize the WebDriver
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    
     data = []
 
     try:
+        # Navigate to the URL
         driver.get(url)
-        wait = WebDriverWait(driver, 10)
+        wait = WebDriverWait(driver, 15)
 
-        # Extract all categories
-        main_category_elements = wait.until(EC.presence_of_all_elements_located((By.XPATH, "//li[contains(@class, 'level-1')]/a/span")))
-
-        if not main_category_elements:
-            print("No main categories found")
-            return
+        # Get all top-level menu items
+        main_categories = wait.until(EC.presence_of_all_elements_located(
+            (By.XPATH, "//ul[@class='menu-content']/li[contains(@class, 'level-1')]/a/span")))
         
-        for main_category_element in main_category_elements:
-            main_category_name = main_category_element.text.strip()
+        for category in main_categories:
+            main_category = category.text.strip()
+            if not main_category:
+                continue
 
-            #Hover to reveal subcategories
-            actions = ActionChains(driver)
-            actions.move_to_element(main_category_element).perform()
-            time.sleep(2)
-        
-
-            #Extract subacategories
-            subcategory_elements = wait.until(EC.presence_of_all_elements_located((By.XPATH, "//div[@class='container_lab_megamenu']//ul[@class='ul-column']/li/a")))
-            if subcategory_elements:
-                    for subcategory_element in subcategory_elements:
-                        subcategory_name = subcategory_element.text.strip()
-
-                        data.append({
-                            'Main Category': main_category_name,
-                            'Subcategory': subcategory_name
-                        })
+            # Check if this category has a dropdown by looking for the dropdown icon
+            parent_li = category.find_element(By.XPATH, "./ancestor::li")
+            has_dropdown = len(parent_li.find_elements(By.XPATH, ".//span[contains(@class, 'icon-drop-mobile')]")) > 0
+            
+            if has_dropdown:
+                # Hover to reveal dropdown menu
+                ActionChains(driver).move_to_element(category).perform()
+                time.sleep(1)  # Increased pause for menu to fully appear
+                
+                try:
+                    dropdown = parent_li.find_element(By.XPATH, ".//div[contains(@class, 'lab-sub-menu')]")
+                    
+                    # Process each column in the dropdown menu
+                    columns = dropdown.find_elements(By.XPATH, ".//div[contains(@class, 'lab-menu-col')]")
+                    
+                    for col in columns:
+                        # Get subcategory header
+                        try:
+                            header = col.find_element(By.XPATH, ".//li[contains(@class, 'item-header')]/a")
+                            subcategory = header.text.strip()
+                        except:
+                            continue  # Skip if no header found
+                        
+                        # Get all items under this subcategory
+                        items = col.find_elements(By.XPATH, ".//li[contains(@class, 'item-line')]/a[normalize-space(text())]")
+                        item_list = [item.text.strip() for item in items if item.text.strip()]
+                        
+                        if subcategory and item_list:
+                            data.append({
+                                'Main Category': main_category,
+                                'Subcategory': subcategory,
+                                'Items': ", ".join(item_list)
+                            })
+                except Exception as e:
+                    print(f"Couldn't process dropdown for {main_category}")
+                    data.append({
+                        'Main Category': main_category,
+                        'Subcategory': 'N/A',
+                        'Items': 'N/A'
+                    })
             else:
-                    print(f"No subcategories found for {main_category_name}")
-    
-    except Exception as e:
-        print(f"Error extracting data: {e}")
-        print(traceback.format_exc())
-     
-        # Save data
+                # For categories without dropdowns
+                data.append({
+                    'Main Category': main_category,
+                    'Subcategory': 'N/A',
+                    'Items': 'N/A'
+                })
+
+        # Save to CSV
         if data:
-            os.makedirs(folder_name, exist_ok=True)
+            # Create DataFrame and save to CSV
             df = pd.DataFrame(data)
+            os.makedirs(folder_name, exist_ok=True)
             df.to_csv(os.path.join(folder_name, "navbar_data.csv"), index=False)
-            print(f"Data saved to: {os.path.join(folder_name, 'navbar_data.csv')}")
+            print("Navbar data extracted successfully")
         else:
-            print("No data to save!")
+            print("No data was collected from the page")
 
     except Exception as e:
-        print(f"Error: {e}")
-        print(traceback.format_exc())
-
+        print(f"An error occurred: {str(e)}")
     finally:
         driver.quit()
 
@@ -166,6 +194,7 @@ def extract_headings_and_strong_words(url, folder_name):
         pass
 
     product_data = []
+    #timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     # Find all category sections by checking checkbox
     category_sections = driver.find_elements(By.XPATH, "//input[@class, 'pas-shown-by-js')]")
@@ -227,6 +256,7 @@ def extract_headings_and_strong_words(url, folder_name):
 
                     # Add to product data
                     product_data.append({
+                        #'Timestamp': timestamp,
                         'Main Category': main_category,
                         'Subcategory': "N/A",  # Explicitly set to N/A
                         'Product Category': product_category,
