@@ -179,7 +179,7 @@ def extract_headings_and_strong_words(url, folder_name):
         driver.quit()
 
     # ------------------------------- PRODUCT EXTRACTION -----------------------------------------------
-
+    
     # Re-initialize WebDriver for product scraping
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     driver.get(url)
@@ -194,61 +194,55 @@ def extract_headings_and_strong_words(url, folder_name):
         pass
 
     product_data = []
-    #timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    seen_products = set()
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    # Find all category sections by checking checkbox
-    category_sections = driver.find_elements(By.XPATH, "//input[@class, 'pas-shown-by-js')]")
-
-    #Check if it is already checked
-    for section in category_sections:
-        if not section.is_selected():
-        #Click it
-            section.click()
-
-    #Wait
-    category_sections = WebDriverWait(driver, 10).until(
-        EC.presence_of_all_elements_located((By.XPATH, "//input[@class, 'pas-shown-by-js')]")
-    ))
+    # Find all category sections with sliders
+    category_sections = driver.find_elements(By.XPATH, "//div[contains(@class, 'block-content')]")
 
     for section in category_sections:
         try:
             # Extract main category name
             try:
-                main_category = section.find_element(By.XPATH, ".//h2[contains(@class, 'productName')]").text.strip()
+                main_category = section.find_element(By.XPATH, ".//h3/a/span").text.strip()
             except:
-                main_category = section.find_element(By.XPATH, ".//h2").text.strip()
+                main_category = section.find_element(By.XPATH, ".//h3").text.strip()
 
             print(f"\nScraping main category: {main_category}")
 
-            # Find all products in this category
-            products = section.find_elements(By.XPATH, ".//div[contains(@class, 'laberProduct')]")
-            print(f"Found {len(products)} products in {main_category}")
+           # Find all product containers - updated selector
+            products = WebDriverWait(driver, 20).until(
+                EC.presence_of_all_elements_located((By.XPATH, "//div[contains(@class, 'laberProduct')]"))
+            )
+            print(f"Found {len(products)} total products on page")
 
             for product in products:
                 try:
+                    driver.execute_script("arguments[0].scrollIntoView({block:'center'});", product)
+                    time.sleep(0.2)
+
                     # Product Name
                     try:
-                        name = product.find_element(By.XPATH, ".//h2[contains(@class, 'productName')]").text.strip() 
+                        name = product.find_element(By.XPATH, ".//h2[contains(@class, 'productName')]").text.strip()
                         if not name:
                             name = product.find_element(By.XPATH, ".//h2").text.strip()
                         name = name.replace('"', "'")
                     except:
-                        name = "N/A"
+                       name = "N/A"
 
-                    # Product Category (brand)
-                    try:
-                        product_category = product.find_element(By.XPATH, ".//span[contains(@class, 'manufacturer_name')]").text.strip()
-                    except:
-                        product_category = "N/A"
+                    #Prevent Duplicates
+                    if name in seen_products:
+                        continue
+                    seen_products.add(name)
 
                     # Prices
                     try:
-                        current_price = product.find_element(By.XPATH, ".//span[contains(@class, 'price'])]").text.strip()
+                        current_price = product.find_element(By.XPATH, ".//span[contains(@class, 'price')]").text.strip()
                     except:
                         current_price = "N/A"
 
                     try:
-                        original_price = product.find_element(By.XPATH, ".//span[contains(@class, 'regualr_price')]").text.strip()
+                        original_price = product.find_element(By.XPATH, ".//small[contains(@class, 'regular-price')]").text.strip()
                         if not original_price:
                             original_price = current_price  # If no sale, original = current
                     except:
@@ -256,10 +250,9 @@ def extract_headings_and_strong_words(url, folder_name):
 
                     # Add to product data
                     product_data.append({
-                        #'Timestamp': timestamp,
+                        'Timestamp': timestamp,
                         'Main Category': main_category,
                         'Subcategory': "N/A",  # Explicitly set to N/A
-                        'Product Category': product_category,
                         'Product Name': name,
                         'Current Price': current_price,
                         'Original Price': original_price

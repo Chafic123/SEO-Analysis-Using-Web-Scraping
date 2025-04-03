@@ -203,6 +203,11 @@ def extract_headings_and_strong_words(url, folder_name):
                         EC.presence_of_element_located((By.XPATH, ".//div[contains(@class, 'row-slider')]"))
                     )
                     
+                    # After clicking, verify the tab is active
+                    WebDriverWait(driver, 10).until(
+                        lambda d: "is-active" in subcategory.get_attribute("class") or 
+                                "selected" in subcategory.get_attribute("class")
+)
                     # Scroll horizontally until no new products appear
                     previous_product_count = 0
                     while True:
