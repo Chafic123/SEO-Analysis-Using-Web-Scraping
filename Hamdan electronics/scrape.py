@@ -252,7 +252,6 @@ def extract_headings_and_strong_words(url, folder_name):
                     product_data.append({
                         'Timestamp': timestamp,
                         'Main Category': main_category,
-                        'Subcategory': "N/A",  # Explicitly set to N/A
                         'Product Name': name,
                         'Current Price': current_price,
                         'Original Price': original_price

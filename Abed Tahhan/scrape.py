@@ -109,6 +109,7 @@ def extract_backlinks(url, folder_name):
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
         return None
+    
 
 
 def extract_headings_and_strong_words(url, folder_name):
@@ -285,7 +286,6 @@ def extract_headings_and_strong_words(url, folder_name):
                     product_data.append({
                         'Timestamp': timestamp,
                         'Main Category': main_category,
-                        'Subcategory': "N/A",  # Explicitly set to N/A
                         'Product Category': product_category,
                         'Product Name': name,
                         'Current Price': current_price,
