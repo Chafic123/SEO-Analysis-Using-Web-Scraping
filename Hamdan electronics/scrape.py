@@ -194,17 +194,16 @@ def extract_headings_and_strong_words(url, folder_name):
         pass
 
     product_data = []
-    seen_products = set()
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     # Find all category sections with sliders
-    category_sections = driver.find_elements(By.XPATH, "//div[contains(@class, 'block-content')]")
+    category_sections = driver.find_elements(By.XPATH, ".//div[contains(@class, 'laberProdCategory')]")
 
     for section in category_sections:
         try:
             # Extract main category name
             try:
-                main_category = section.find_element(By.XPATH, ".//h3/a/span").text.strip()
+                main_category = section.find_element(By.XPATH, ".//h3//span[contains(@class, 'strong')]").text.strip()
             except:
                 main_category = section.find_element(By.XPATH, ".//h3").text.strip()
 
@@ -212,7 +211,7 @@ def extract_headings_and_strong_words(url, folder_name):
 
            # Find all product containers - updated selector
             products = WebDriverWait(driver, 20).until(
-                EC.presence_of_all_elements_located((By.XPATH, "//div[contains(@class, 'laberProduct')]"))
+                EC.presence_of_all_elements_located((By.XPATH, ".//article[contains(@class, 'product-miniature')]"))
             )
             print(f"Found {len(products)} total products on page")
 
@@ -230,10 +229,6 @@ def extract_headings_and_strong_words(url, folder_name):
                     except:
                        name = "N/A"
 
-                    #Prevent Duplicates
-                    if name in seen_products:
-                        continue
-                    seen_products.add(name)
 
                     # Prices
                     try:
@@ -264,8 +259,19 @@ def extract_headings_and_strong_words(url, folder_name):
         except Exception as e:
             print(f"Error processing category section: {e}")
             continue
+        if product_data:
+            os.makedirs(folder_name, exist_ok=True)
+            df = pd.DataFrame(product_data)
+            
+            # Clean and normalize data
+            df['Product Name'] = df['Product Name'].str.strip()
+            df = df[df['Product Name'] != "N/A"]  # Remove entries with no product name
+            
+            # Drop duplicates based on category and product name
+            df = df.drop_duplicates(subset=['Main Category', 'Product Name'], keep='first')
 
     driver.quit()
+   
 
     # Save results
     if product_data:

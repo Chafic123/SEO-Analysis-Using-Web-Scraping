@@ -200,7 +200,7 @@ def extract_headings_and_strong_words(url, folder_name):
                 })
                 continue
                 
-            # Step 2: Process subcategories (your existing perfect logic)
+            # Step 2: Process subcategories
             subcategories = parent_li.find_elements(By.XPATH, 
                 ".//ul[contains(@class, 'mega-sub-menu')]//li[contains(@class, 'mega-menu-item') and contains(@class, 'mega-menu-item-has-children')]")
             
