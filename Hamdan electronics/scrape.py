@@ -179,12 +179,12 @@ def extract_headings_and_strong_words(url, folder_name):
         driver.quit()
 
         # ------------------------------- PRODUCT EXTRACTION -----------------------------------------------
-    # Re-initialize WebDriver for product scraping
+        
+    # Re-initialize WebDriver 
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     driver.get(url)
-    time.sleep(5)  # Allow time for the page to load
+    time.sleep(5)  
 
-    # Accept cookies if present
     try:
         cookie_accept = driver.find_element(By.XPATH, "//button[contains(text(), 'Accept') or contains(text(), 'AGREE')]")
         cookie_accept.click()
@@ -200,7 +200,7 @@ def extract_headings_and_strong_words(url, folder_name):
 
     for section in category_sections:
         try:
-            # Extract main category name
+            # main category name
             try:
                 main_category = section.find_element(By.XPATH, ".//h3//span[contains(@class, 'strong')]").text.strip()
             except:
@@ -257,17 +257,15 @@ def extract_headings_and_strong_words(url, folder_name):
             continue
 
     driver.quit()
-   
+
     # Save results
     if product_data:
         os.makedirs(folder_name, exist_ok=True)
         df = pd.DataFrame(product_data)
         
-        # Clean and normalize data
         df['Product Name'] = df['Product Name'].str.strip()
-        df = df[df['Product Name'] != "N/A"]  # Remove entries with no product name
+        df = df[df['Product Name'] != "N/A"]  
         
-        # Drop duplicates based on category and product name
         df = df.drop_duplicates(subset=['Main Category', 'Product Name'], keep='first')
         
         df.to_csv(os.path.join(folder_name, "products.csv"), index=False)
