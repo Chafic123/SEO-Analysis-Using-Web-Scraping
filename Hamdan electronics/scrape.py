@@ -178,8 +178,7 @@ def extract_headings_and_strong_words(url, folder_name):
     finally:
         driver.quit()
 
-    # ------------------------------- PRODUCT EXTRACTION -----------------------------------------------
-    
+        # ------------------------------- PRODUCT EXTRACTION -----------------------------------------------
     # Re-initialize WebDriver for product scraping
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     driver.get(url)
@@ -197,7 +196,7 @@ def extract_headings_and_strong_words(url, folder_name):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     # Find all category sections with sliders
-    category_sections = driver.find_elements(By.XPATH, ".//div[contains(@class, 'laberProdCategory')]")
+    category_sections = driver.find_elements(By.XPATH, "//div[contains(@class, 'laberProdCategory')]")
 
     for section in category_sections:
         try:
@@ -209,11 +208,9 @@ def extract_headings_and_strong_words(url, folder_name):
 
             print(f"\nScraping main category: {main_category}")
 
-           # Find all product containers - updated selector
-            products = WebDriverWait(driver, 20).until(
-                EC.presence_of_all_elements_located((By.XPATH, ".//article[contains(@class, 'product-miniature')]"))
-            )
-            print(f"Found {len(products)} total products on page")
+            # Find products ONLY within this section
+            products = section.find_elements(By.XPATH, ".//article[contains(@class, 'product-miniature')]")
+            print(f"Found {len(products)} products in category: {main_category}")
 
             for product in products:
                 try:
@@ -227,8 +224,7 @@ def extract_headings_and_strong_words(url, folder_name):
                             name = product.find_element(By.XPATH, ".//h2").text.strip()
                         name = name.replace('"', "'")
                     except:
-                       name = "N/A"
-
+                        name = "N/A"
 
                     # Prices
                     try:
@@ -259,26 +255,23 @@ def extract_headings_and_strong_words(url, folder_name):
         except Exception as e:
             print(f"Error processing category section: {e}")
             continue
-        if product_data:
-            os.makedirs(folder_name, exist_ok=True)
-            df = pd.DataFrame(product_data)
-            
-            # Clean and normalize data
-            df['Product Name'] = df['Product Name'].str.strip()
-            df = df[df['Product Name'] != "N/A"]  # Remove entries with no product name
-            
-            # Drop duplicates based on category and product name
-            df = df.drop_duplicates(subset=['Main Category', 'Product Name'], keep='first')
 
     driver.quit()
    
-
     # Save results
     if product_data:
         os.makedirs(folder_name, exist_ok=True)
         df = pd.DataFrame(product_data)
+        
+        # Clean and normalize data
+        df['Product Name'] = df['Product Name'].str.strip()
+        df = df[df['Product Name'] != "N/A"]  # Remove entries with no product name
+        
+        # Drop duplicates based on category and product name
+        df = df.drop_duplicates(subset=['Main Category', 'Product Name'], keep='first')
+        
         df.to_csv(os.path.join(folder_name, "products.csv"), index=False)
-        print(f"\nSuccessfully extracted {len(product_data)} products")
+        print(f"\nSuccessfully extracted {len(df)} unique products")
         return df
     else:
         print("No products found")
