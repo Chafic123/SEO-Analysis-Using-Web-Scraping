@@ -108,32 +108,150 @@ def extract_backlinks(url, folder_name):
         driver.quit()
     
 def extract_headings_and_strong_words(url, folder_name):
-    # Extract navbar data
+    
     navbar_df = extract_navbar_data(url, folder_name)
     
-    # Extract products using both methods
-    products_carousel_df = extract_products_carousel(url, folder_name)
-    products_list_df = extract_products_list(url, folder_name)
+    options = webdriver.ChromeOptions()
+    options.add_argument("--start-maximized")
+    options.add_argument("--headless")
     
-    # Combine product dataframes if both exist
-    if products_carousel_df is not None and products_list_df is not None:
-        # Remove duplicate columns before merge
-        products_list_df = products_list_df.drop(columns=['Product URL'], errors='ignore')
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    driver.get(url)
+    time.sleep(5)
+
+    # Accept cookies
+    try:
+        cookie_accept = WebDriverWait(driver, 5).until(
+            EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'Accept') or contains(text(), 'AGREE')]"))
+        )
+        cookie_accept.click()
+        time.sleep(1)
+    except:
+        pass
+
+    product_data = []
+    seen_products = set()
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    def parse_product(product, section_title, product_type="carousel"):
+        try:
+            if product_type == "carousel":
+                name = product.find_element(By.XPATH, ".//p[contains(@class, 'product-title')]/a | .//span[contains(@class, 'product-title')]").text.strip()
+            else:  # list type
+                name = product.find_element(By.XPATH, ".//span[contains(@class, 'product-title')]").text.strip()
+            name = name.replace('"', "'")
+        except:
+            name = "N/A"
         
-        # Combine
-        combined_products = pd.concat([products_carousel_df, products_list_df])
+        if name == "N/A" or name in seen_products:
+            return None
+        seen_products.add(name)
+
+        # Price extraction
+        try:
+            current_price = product.find_element(By.XPATH, ".//ins//span[contains(@class, 'amount')]").text.strip()
+        except:
+            try:
+                current_price = product.find_element(By.XPATH, ".//span[contains(@class, 'amount')]").text.strip()
+            except:
+                current_price = "N/A"
+
+        try:
+            original_price = product.find_element(By.XPATH, ".//del//span[contains(@class, 'amount')]").text.strip()
+        except:
+            original_price = current_price
+
+        return {
+            'Timestamp': timestamp,
+            'Main Category': section_title if section_title.strip() else "LATEST", 
+            'Product Name': name,
+            'Current Price': current_price,
+            'Original Price': original_price,
+        }
+
+    def process_carousel(section_title, container):
+        products = container.find_elements(By.XPATH, ".//div[contains(@class, 'product-small') and contains(@class, 'box')]")
+        print(f"Found {len(products)} carousel products in {section_title}")
+        for product in products:
+            try:
+                driver.execute_script("arguments[0].scrollIntoView({block:'center'});", product)
+                time.sleep(0.3)
+            except:
+                pass
+            result = parse_product(product, section_title, "carousel")
+            if result:
+                product_data.append(result)
+
+    def process_list(section_title, ul_element):
+        products = ul_element.find_elements(By.XPATH, "./li")
+        print(f"Found {len(products)} list products in {section_title}")
+        for product in products:
+            result = parse_product(product, section_title, "list")
+            if result:
+                product_data.append(result)
+
+    # Process all sections (both carousels and lists)
+    try:
+        sections = driver.find_elements(By.XPATH, "//div[contains(@class, 'section-title-container')]")
+        print(f"Found {len(sections)} sections")
+
+        for section in sections:
+            try:
+                section_title = section.find_element(By.XPATH, ".//span[contains(@class, 'section-title-main')]").text.strip()
+                print(f"\nProcessing section: {section_title}")
+                
+                # First try to find a carousel
+                try:
+                    carousel = section.find_element(By.XPATH, "./following-sibling::div[contains(@class, 'row') and contains(@class, 'slider')][1]")
+                    process_carousel(section_title, carousel)
+                except:
+                    # If no carousel, try to find a product list
+                    try:
+                        ul = section.find_element(By.XPATH, "./following::ul[contains(@class, 'product_list_widget') or contains(@class, 'ux-products-list')][1]")
+                        process_list(section_title, ul)
+                    except:
+                        print(f"No recognizable product format in section: {section_title}")
+            except Exception as e:
+                print(f"Error processing section: {e}")
+    except Exception as e:
+        print("Error finding sections")
+        traceback.print_exc()
+
+    # Process special widgets - Skip if we've already processed them as sections
+    try:
+        widgets = driver.find_elements(By.XPATH, "//div[contains(@id, 'block-') and contains(@class, 'widget_block') and not(contains(@class, 'section-title-container'))]")
+        for widget in widgets:
+            try:
+                section_title = widget.find_element(By.XPATH, ".//span[contains(@class, 'section-title-main')]").text.strip()
+                print(f"\nProcessing widget: {section_title}")
+                ul = widget.find_element(By.XPATH, ".//ul[contains(@class, 'product_list_widget') or contains(@class, 'ux-products-list')]")
+                process_list(section_title, ul)
+            except Exception as e:
+                print(f"Error processing widget: {e}")
+    except Exception as e:
+        print("Error finding widgets")
+        traceback.print_exc()
+
+    driver.quit()
+
+    # Save results
+    if product_data:
+        os.makedirs(folder_name, exist_ok=True)
+        df = pd.DataFrame(product_data)
         
-        # Save combined products
-        output_path = os.path.join(folder_name, "products.csv")
-        combined_products.to_csv(output_path, index=False)
-        print(f"Combined products saved to: {output_path}")
-        return combined_products
-    elif products_carousel_df is not None:
-        return products_carousel_df
-    elif products_list_df is not None:
-        return products_list_df
+        # Clean and organize columns
+        columns_order = [
+            'Timestamp', 'Main Category', 'Product Name', 
+            'Current Price', 'Original Price']
+        df = df[columns_order]
+        
+        # Save to CSV
+        csv_path = os.path.join(folder_name, "products.csv")
+        df.to_csv(csv_path, index=False)
+        print(f"\nSuccessfully extracted {len(df)} products. Saved to {csv_path}")
+        return df
     else:
-        print("No product data was extracted")
+        print("No products found.")
         return None
 
 def extract_navbar_data(url, folder_name):
@@ -205,7 +323,8 @@ def extract_navbar_data(url, folder_name):
                             ".//ul[contains(@class, 'mega-sub-menu')]/li/a")
                         items = [item.text.strip() for item in item_elements if item.text.strip()]
                     
-                    # Add to data (maintaining your perfect format)
+                    # Add to data
+
                     data.append({
                         'Main Category': main_category,
                         'Subcategory': subcategory_title,
@@ -232,318 +351,7 @@ def extract_navbar_data(url, folder_name):
     finally:
         driver.quit()
 
-def extract_products_list(url, folder_name):
-    options = webdriver.ChromeOptions()
-    options.add_argument("--start-maximized")
-    options.add_argument("--headless")
-    
-    # Re-initialize WebDriver for product scraping
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-    driver.get(url)
-    time.sleep(5)  # Allow time for page load
-
-    # Accept cookies if present
-    try:
-        cookie_accept = WebDriverWait(driver, 5).until(
-            EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'Accept') or contains(text(), 'AGREE')]"))
-        )
-        cookie_accept.click()
-        time.sleep(1)
-    except:
-        pass
-
-    product_data = []
-    seen_products = set()
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-    # Get all section titles first
-    try:
-        sections = driver.find_elements(By.XPATH, "//div[contains(@class, 'section-title-container')]")
-        print(f"Found {len(sections)} sections on page")
-        
-        # Process each section
-        for section in sections:
-            try:
-                # Get section title
-                section_title = section.find_element(By.XPATH, ".//span[contains(@class, 'section-title-main')]").text.strip()
-                print(f"\nProcessing section: {section_title}")
-                
-                # Find the next product grid after this section
-                next_sibling = section.find_element(By.XPATH, "./following-sibling::div[contains(@class, 'row') and contains(@class, 'slider')][1]")
-                
-                # Get products in this section
-                products = next_sibling.find_elements(By.XPATH, ".//div[contains(@class, 'product-small') and contains(@class, 'box')]")
-                print(f"Found {len(products)} products in this section")
-                
-                for product in products:
-                    try:
-                        # Scroll product into view
-                        driver.execute_script("arguments[0].scrollIntoView({block:'center'});", product)
-                        time.sleep(0.3)
-                        
-                        # Product Name
-                        try:
-                            name = product.find_element(By.XPATH, ".//p[contains(@class, 'product-title')]/a").text.strip()
-                            name = name.replace('"', "'")
-                        except:
-                            name = "N/A"
-                        
-                        # Skip if duplicate or no name
-                        if name == "N/A" or name in seen_products:
-                            continue
-                        seen_products.add(name)
-                        
-                        # Prices
-                        try:
-                            current_price = product.find_element(By.XPATH, ".//ins//span[contains(@class, 'amount')]").text.strip()
-                        except:
-                            try:
-                                current_price = product.find_element(By.XPATH, ".//span[contains(@class, 'amount')]").text.strip()
-                            except:
-                                current_price = "N/A"
-                        
-                        try:
-                            original_price = product.find_element(By.XPATH, ".//del//span[contains(@class, 'amount')]").text.strip()
-                        except:
-                            original_price = current_price
-                        
-                        
-                        # Add to product data with category
-                        product_data.append({
-                            'Timestamp': timestamp,
-                            'Category': section_title,
-                            'Product Name': name,
-                            'Current Price': current_price,
-                            'Original Price': original_price,
-                           
-                        })
-                        
-                    except Exception as e:
-                        print(f"Error processing product: {e}")
-                        continue
-                        
-            except Exception as e:
-                print(f"Error processing section: {e}")
-                continue
-                
-    except Exception as e:
-        print(f"Error finding sections: {e}")
-        traceback.print_exc()
-
-    driver.quit()
-
-    # Save results
-    if product_data:
-        os.makedirs(folder_name, exist_ok=True)
-        df = pd.DataFrame(product_data)
-        
-        # Reorder columns
-        df = df[['Timestamp', 'Category', 'Product Name', 'Current Price', 'Original Price']]
-        
-        df.to_csv(os.path.join(folder_name, "products.csv"), index=False)
-        print(f"\nSuccessfully extracted {len(product_data)} products with categories")
-        return df
-    else:
-        print("No products found")
-        return None
-   
-def extract_products_carousel(url, folder_name):
-    options = webdriver.ChromeOptions()
-    options.add_argument("--start-maximized")
-    options.add_argument("--headless")
-
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-    driver.get(url)
-    time.sleep(5)  # Allow time for page load
-
-    # Accept cookies if present
-    try:
-        cookie_accept = WebDriverWait(driver, 5).until(
-            EC.element_to_be_clickable((By.XPATH, "//button[contains(text(), 'Accept') or contains(text(), 'AGREE')]"))
-        )
-        cookie_accept.click()
-        time.sleep(1)
-    except:
-        pass
-
-    product_data = []
-    seen_products = set()
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-    def process_products_list(section_title, products_list):
-        """Helper function to process products in list format"""
-        products = products_list.find_elements(By.XPATH, "./li")
-        print(f"Found {len(products)} products in {section_title} section")
-        
-        for product in products:
-            try:
-                # Product Name
-                try:
-                    name = product.find_element(By.XPATH, ".//span[contains(@class, 'product-title')]").text.strip()
-                    name = name.replace('"', "'")
-                except:
-                    name = "N/A"
-                
-                # Skip if duplicate or no name
-                if name == "N/A" or name in seen_products:
-                    continue
-                seen_products.add(name)
-                
-                # Prices - handle both regular and sale prices
-                try:
-                    # Try to get sale price first
-                    current_price = product.find_element(By.XPATH, ".//ins//span[contains(@class, 'amount')]").text.strip()
-                    original_price = product.find_element(By.XPATH, ".//del//span[contains(@class, 'amount')]").text.strip()
-                except:
-                    try:
-                        # If no sale price, get regular price
-                        current_price = product.find_element(By.XPATH, ".//span[contains(@class, 'amount')]").text.strip()
-                        original_price = current_price
-                    except:
-                        current_price = "N/A"
-                        original_price = "N/A"
-                
-                # Product URL
-                try:
-                    product_url = product.find_element(By.XPATH, ".//a").get_attribute("href")
-                except:
-                    product_url = "N/A"
-                
-                # Add to product data
-                product_data.append({
-                    'Timestamp': timestamp,
-                    'Category': section_title,
-                    'Product Name': name,
-                    'Current Price': current_price,
-                    'Original Price': original_price,
-                    'Product URL': product_url
-                })
-                
-            except Exception as e:
-                print(f"Error processing product in {section_title}: {e}")
-                continue
-
-    # 1. Process regular sections (carousel format)
-    try:
-        sections = driver.find_elements(By.XPATH, "//div[contains(@class, 'section-title-container')]")
-        print(f"Found {len(sections)} sections on page")
-        
-        for section in sections:
-            try:
-                # Get section title
-                section_title = section.find_element(By.XPATH, ".//span[contains(@class, 'section-title-main')]").text.strip()
-                print(f"\nProcessing section: {section_title}")
-                
-                # Check if this is followed by a product list (special case)
-                try:
-                    products_list = section.find_element(By.XPATH, "./following::ul[contains(@class, 'ux-products-list')][1]")
-                    process_products_list(section_title, products_list)
-                    continue  # Skip the carousel processing for this section
-                except:
-                    pass
-                
-                # Regular carousel processing
-                try:
-                    next_sibling = section.find_element(By.XPATH, "./following-sibling::div[contains(@class, 'row') and contains(@class, 'slider')][1]")
-                    products = next_sibling.find_elements(By.XPATH, ".//div[contains(@class, 'product-small') and contains(@class, 'box')]")
-                    print(f"Found {len(products)} products in this section")
-                    
-                    for product in products:
-                        try:
-                            # Scroll product into view
-                            driver.execute_script("arguments[0].scrollIntoView({block:'center'});", product)
-                            time.sleep(0.3)
-                            
-                            # Product Name
-                            try:
-                                name = product.find_element(By.XPATH, ".//p[contains(@class, 'product-title')]/a").text.strip()
-                                name = name.replace('"', "'")
-                            except:
-                                name = "N/A"
-                            
-                            # Skip if duplicate or no name
-                            if name == "N/A" or name in seen_products:
-                                continue
-                            seen_products.add(name)
-                            
-                            # Prices
-                            try:
-                                current_price = product.find_element(By.XPATH, ".//ins//span[contains(@class, 'amount')]").text.strip()
-                            except:
-                                try:
-                                    current_price = product.find_element(By.XPATH, ".//span[contains(@class, 'amount')]").text.strip()
-                                except:
-                                    current_price = "N/A"
-                            
-                            try:
-                                original_price = product.find_element(By.XPATH, ".//del//span[contains(@class, 'amount')]").text.strip()
-                            except:
-                                original_price = current_price
-                            
-                            
-                            # Add to product data with category
-                            product_data.append({
-                                'Timestamp': timestamp,
-                                'Category': section_title,
-                                'Product Name': name,
-                                'Current Price': current_price,
-                                'Original Price': original_price,
-                            })
-                            
-                        except Exception as e:
-                            print(f"Error processing product: {e}")
-                            continue
-                            
-                except Exception as e:
-                    print(f"Error processing carousel products: {e}")
-                    continue
-                    
-            except Exception as e:
-                print(f"Error processing section: {e}")
-                continue
-                
-    except Exception as e:
-        print(f"Error finding sections: {e}")
-        traceback.print_exc()
-
-    # 2. Process special widget sections (Latest, Trending, On Sale)
-    try:
-        widget_blocks = driver.find_elements(By.XPATH, "//div[contains(@id, 'block-') and contains(@class, 'widget_block')]")
-        for widget in widget_blocks:
-            try:
-                # Get section title
-                section_title = widget.find_element(By.XPATH, ".//span[contains(@class, 'section-title-main')]").text.strip()
-                print(f"\nProcessing widget section: {section_title}")
-                
-                # Find the products list
-                products_list = widget.find_element(By.XPATH, ".//ul[contains(@class, 'ux-products-list')]")
-                process_products_list(section_title, products_list)
-                
-            except Exception as e:
-                print(f"Error processing widget section: {e}")
-                continue
-                
-    except Exception as e:
-        print(f"Error finding widget sections: {e}")
-        traceback.print_exc()
-
-    driver.quit()
-
-    # Save results
-    if product_data:
-        os.makedirs(folder_name, exist_ok=True)
-        df = pd.DataFrame(product_data)
-        
-        # Reorder columns
-        df = df[['Timestamp', 'Category', 'Product Name', 'Current Price', 'Original Price']]
-        
-        df.to_csv(os.path.join(folder_name, "products.csv"), index=False)
-        print(f"\nSuccessfully extracted {len(product_data)} products with categories")
-        return df
-    else:
-        print("No products found")
-        return None
-    
+ 
 def extract_keywords(url, folder_name):
     soup = fetch_html(url)
     if not soup:
@@ -571,8 +379,10 @@ def extract_keywords(url, folder_name):
     logging.info("Keywords extracted successfully")
     
 if __name__ == "__main__":
-    url = input("Enter the website URL: ").strip()
-    folder_name = input("Enter the folder name to save data: ").strip()
+    # url = input("Enter the website URL: ").strip()
+    url = "https://beytech.com.lb/"
+    # folder_name = input("Enter the folder name to save data: ").strip()
+    folder_name = "csv"
     os.makedirs(folder_name, exist_ok=True)
     
     threads = [

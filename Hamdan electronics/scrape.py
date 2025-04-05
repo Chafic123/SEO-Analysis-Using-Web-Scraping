@@ -54,9 +54,9 @@ def extract_meta_data(url, folder_name):
         meta_data.append(["Title", title])  # Adding title as first row
         
         for meta in soup.find_all("meta"):
-            name = meta.get("name") or meta.get("property")  # Handle both "name" and "property" attributes
+            name = meta.get("name") or meta.get("property")
             content = meta.get("content", "No content found")
-            if name:  # Ensure it's a named meta tag
+            if name:
                 meta_data.append([name, content])
         
         # Convert to DataFrame
@@ -137,7 +137,7 @@ def extract_headings_and_strong_words(url, folder_name):
             if has_dropdown:
                 # Hover to reveal dropdown menu
                 ActionChains(driver).move_to_element(category).perform()
-                time.sleep(1)  # Increased pause for menu to fully appear
+                time.sleep(1) 
                 
                 try:
                     dropdown = parent_li.find_element(By.XPATH, ".//div[contains(@class, 'lab-sub-menu')]")
@@ -151,7 +151,7 @@ def extract_headings_and_strong_words(url, folder_name):
                             header = col.find_element(By.XPATH, ".//li[contains(@class, 'item-header')]/a")
                             subcategory = header.text.strip()
                         except:
-                            continue  # Skip if no header found
+                            continue
                         
                         # Get all items under this subcategory
                         items = col.find_elements(By.XPATH, ".//li[contains(@class, 'item-line')]/a[normalize-space(text())]")
@@ -183,7 +183,7 @@ def extract_headings_and_strong_words(url, folder_name):
             # Create DataFrame and save to CSV
             df = pd.DataFrame(data)
             os.makedirs(folder_name, exist_ok=True)
-            df.to_csv(os.path.join(folder_name, "navbar_data.csv"), index=False)
+            df.to_csv(os.path.join(folder_name, "navbar.csv"), index=False)
             print("Navbar data extracted successfully")
         else:
             print("No data was collected from the page")
@@ -250,7 +250,7 @@ def extract_headings_and_strong_words(url, folder_name):
                     try:
                         original_price = product.find_element(By.XPATH, ".//span[contains(@class, 'regular-price')]").text.strip()
                         if not original_price:
-                            original_price = current_price  # If no sale, original = current
+                            original_price = current_price 
                     except:
                         original_price = current_price
 
@@ -313,8 +313,10 @@ def extract_keywords(url, folder_name):
     logging.info("Keywords extracted successfully")
 
 if __name__ == "__main__":
-    url = input("Enter the website URL: ").strip()
-    folder_name = input("Enter the folder name to save data: ").strip()
+    # url = input("Enter the website URL: ").strip()
+    # folder_name = input("Enter the folder name to save data: ").strip()
+    url = "https://hamdanelectronics.com/"
+    folder_name = "csv"
     os.makedirs(folder_name, exist_ok=True)
     
     threads = [
