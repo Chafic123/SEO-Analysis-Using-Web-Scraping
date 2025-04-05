@@ -124,3 +124,29 @@
 2025-04-04 16:35:00,037 - INFO - Get LATEST chromedriver version for google-chrome
 2025-04-04 16:35:03,150 - INFO - Get LATEST chromedriver version for google-chrome
 2025-04-04 16:35:03,765 - INFO - Driver [C:\Users\User\.wdm\drivers\chromedriver\win64\135.0.7049.42\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-05 14:46:30,700 - INFO - ====== WebDriver manager ======
+2025-04-05 14:46:33,042 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-05 14:46:33,327 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-05 14:46:33,529 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-05 14:46:34,627 - INFO - WebDriver version 134.0.6998.165 selected
+2025-04-05 14:46:34,627 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/134.0.6998.165/win32/chromedriver-win32.zip
+2025-04-05 14:46:34,627 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/134.0.6998.165/win32/chromedriver-win32.zip
+2025-04-05 14:46:34,803 - INFO - Driver downloading response is 200
+2025-04-05 14:46:39,060 - INFO - Meta data extracted successfully and saved to csv1\meta_data.csv
+2025-04-05 14:46:40,152 - INFO - Keywords extracted successfully
+2025-04-05 14:47:02,240 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-05 14:47:02,665 - INFO - Driver has been saved in cache [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165]
+2025-04-05 14:48:08,508 - INFO - ====== WebDriver manager ======
+2025-04-05 14:48:10,571 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-05 14:48:10,762 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-05 14:48:10,974 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-05 14:59:15,788 - INFO - ====== WebDriver manager ======
+2025-04-05 14:59:18,098 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-05 14:59:18,309 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-05 14:59:18,509 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-05 14:59:25,907 - INFO - Meta data extracted successfully and saved to csv2\meta_data.csv
+2025-04-05 14:59:27,422 - INFO - Keywords extracted successfully
+2025-04-05 15:00:37,212 - INFO - ====== WebDriver manager ======
+2025-04-05 15:00:39,427 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-05 15:00:39,623 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-05 15:00:39,809 - INFO - Driver [C:\Users\samia\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
