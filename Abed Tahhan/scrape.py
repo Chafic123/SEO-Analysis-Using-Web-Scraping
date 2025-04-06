@@ -310,7 +310,14 @@ def extract_headings_and_strong_words(url, folder_name):
     if product_data:
         os.makedirs(folder_name, exist_ok=True)
         df = pd.DataFrame(product_data)
-        df.to_csv(os.path.join(folder_name, "products.csv"), index=False)
+
+        csv_path = os.path.join(folder_name, "products.csv")
+
+        if os.path.exists(csv_path):
+            df.to_csv(csv_path, mode='a', header=False, index=False)  
+        else:
+            df.to_csv(csv_path, mode='w', header=True, index=False)   
+
         print(f"\nSuccessfully extracted {len(product_data)} products")
         return df
     else:

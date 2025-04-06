@@ -278,15 +278,21 @@ def extract_headings_and_strong_words(url, folder_name):
     if product_data:
         os.makedirs(folder_name, exist_ok=True)
         df = pd.DataFrame(product_data)
-        
+    
         df['Product Name'] = df['Product Name'].str.strip()
         df = df[df['Product Name'] != "N/A"]  
-        
+    
         df = df.drop_duplicates(subset=['Main Category', 'Product Name'], keep='first')
-        
-        df.to_csv(os.path.join(folder_name, "products.csv"), index=False)
-        print(f"\nSuccessfully extracted {len(df)} unique products")
-        return df
+    
+        file_path = os.path.join(folder_name, "products.csv")
+    
+        if os.path.exists(file_path):
+            df.to_csv(file_path, mode='a', header=False, index=False)
+        else:
+            df.to_csv(file_path, mode='w', header=True, index=False)
+
+    print(f"\nSuccessfully extracted {len(df)} unique products")
+    return df
     else:
         print("No products found")
         return None
