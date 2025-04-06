@@ -51,9 +51,9 @@ def extract_meta_data(url, folder_name):
         meta_data.append(["Title", title])  # Adding title as first row
         
         for meta in soup.find_all("meta"):
-            name = meta.get("name") or meta.get("property")  # Handle both "name" and "property" attributes
+            name = meta.get("name") or meta.get("property") 
             content = meta.get("content", "No content found")
-            if name:  # Ensure it's a named meta tag
+            if name: 
                 meta_data.append([name, content])
         
         # Convert to DataFrame
@@ -68,48 +68,6 @@ def extract_meta_data(url, folder_name):
 
         logging.info(f"Meta data extracted successfully and saved to {file_path}")
 
-# def extract_backlinks(url, folder_name):
-#     try:
-#         soup = fetch_html(url)
-#         if not soup:
-#             return
-            
-#         # Find the footer social media section
-#         social_section = soup.find('div', class_='footer__column footer--social')
-        
-#         if social_section:
-#             # Extract all social media links
-#             social_links = []
-#             for item in social_section.find_all('li', class_='list-social__item'):
-#                 link = item.find('a', href=True)
-#                 if link:
-#                     # Get the platform name from visually-hidden span or from URL
-#                     platform = link.find('span', class_='visually-hidden')
-#                     platform_name = platform.text.strip() if platform else link['href'].split('.')[1].capitalize()
-                    
-#                     social_links.append({
-#                         'Platform': platform_name,
-#                         'URL': link['href']
-#                     })
-            
-#             # Ensure folder exists
-#             os.makedirs(folder_name, exist_ok=True)
-            
-#             # Save data
-#             file_path = os.path.join(folder_name, "back_links.csv")
-#             df_links = pd.DataFrame(social_links)
-#             df_links.to_csv(file_path, index=False)
-#             print(f"Social media links saved to {file_path}")
-            
-#             return df_links
-#         else:
-#             print("No social media section found in footer")
-#             return None
-            
-#     except Exception as e:
-#         print(f"An unexpected error occurred: {e}")
-#         return None
-    
 def extract_backlinks(url, folder_name):
     try:
         soup = fetch_html(url)
@@ -134,7 +92,6 @@ def extract_backlinks(url, folder_name):
                         'URL': link['href']
                     })
             
-            # Check for WhatsApp chat link (if not already in social_links)
             whatsapp_chat = soup.find('a', class_='blantershow-chat', href=True)
             if whatsapp_chat:
                 social_links.append({
@@ -146,7 +103,7 @@ def extract_backlinks(url, folder_name):
             os.makedirs(folder_name, exist_ok=True)
             
             # Save data
-            file_path = os.path.join(folder_name, "back_links.csv")
+            file_path = os.path.join(folder_name, "backlinks.csv")
             df_links = pd.DataFrame(social_links)
             df_links.to_csv(file_path, index=False)
             print(f"Social media links saved to {file_path}")
@@ -162,10 +119,9 @@ def extract_backlinks(url, folder_name):
 
 def extract_headings_and_strong_words(url, folder_name):
     options = webdriver.ChromeOptions()
-    options.add_argument("--headless")  # Run in headless mode
+    options.add_argument("--headless") 
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
-    # Initialize data list
     data = []
 
     try:
@@ -253,8 +209,8 @@ def extract_headings_and_strong_words(url, folder_name):
         if data:
             os.makedirs(folder_name, exist_ok=True)
             df = pd.DataFrame(data)
-            df.to_csv(os.path.join(folder_name, "navbar_data.csv"), index=False)
-            print(f"Data saved to: {os.path.join(folder_name, 'navbar_data.csv')}")
+            df.to_csv(os.path.join(folder_name, "navbar.csv"), index=False)
+            print(f"Data saved to: {os.path.join(folder_name, 'navbar.csv')}")
         else:
             print("No data to save!")
 
@@ -384,8 +340,10 @@ def extract_keywords(url, folder_name):
     logging.info("Keywords extracted successfully")
 
 if __name__ == "__main__":
-    url = input("Enter the website URL: ").strip()
-    folder_name = input("Enter the folder name to save data: ").strip()
+    # url = input("Enter the website URL: ").strip()
+    # folder_name = input("Enter the folder name to save data: ").strip()
+    url = "https://abedtahan.com/"
+    folder_name = "csv"
     os.makedirs(folder_name, exist_ok=True)
     
     threads = [
