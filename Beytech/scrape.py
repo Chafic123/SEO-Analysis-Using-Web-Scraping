@@ -382,7 +382,7 @@ if __name__ == "__main__":
     # url = input("Enter the website URL: ").strip()
     url = "https://beytech.com.lb/"
     # folder_name = input("Enter the folder name to save data: ").strip()
-    folder_name = "csv"
+    folder_name = "Beytech_Csv"
     os.makedirs(folder_name, exist_ok=True)
     
     threads = [

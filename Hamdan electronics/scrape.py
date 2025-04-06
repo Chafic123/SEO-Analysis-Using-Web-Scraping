@@ -317,7 +317,7 @@ if __name__ == "__main__":
     # url = input("Enter the website URL: ").strip()
     # folder_name = input("Enter the folder name to save data: ").strip()
     url = "https://hamdanelectronics.com/"
-    folder_name = "csv"
+    folder_name = "Hamdan_Csv"
     os.makedirs(folder_name, exist_ok=True)
     
     threads = [

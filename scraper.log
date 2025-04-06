@@ -453,3 +453,79 @@
 2025-04-04 01:55:22,447 - INFO - Get LATEST chromedriver version for google-chrome
 2025-04-04 01:55:22,663 - INFO - Get LATEST chromedriver version for google-chrome
 2025-04-04 01:55:22,844 - INFO - Driver [C:\Users\User\.wdm\drivers\chromedriver\win64\134.0.6998.165\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-06 11:20:44,267 - INFO - ====== WebDriver manager ======
+2025-04-06 11:20:44,552 - ERROR - Error fetching https://abedtahan.com/: 403 Client Error: Forbidden for url: https://abedtahan.com/
+2025-04-06 11:20:44,568 - ERROR - Error fetching https://abedtahan.com/: 403 Client Error: Forbidden for url: https://abedtahan.com/
+2025-04-06 11:20:44,581 - ERROR - Error fetching https://abedtahan.com/: 403 Client Error: Forbidden for url: https://abedtahan.com/
+2025-04-06 11:20:45,165 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:20:45,386 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:20:45,719 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:20:47,259 - INFO - WebDriver version 135.0.7049.42 selected
+2025-04-06 11:20:47,263 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.42/win32/chromedriver-win32.zip
+2025-04-06 11:20:47,263 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.42/win32/chromedriver-win32.zip
+2025-04-06 11:20:47,484 - INFO - Driver downloading response is 200
+2025-04-06 11:21:00,145 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:21:00,689 - INFO - Driver has been saved in cache [C:\Users\User\.wdm\drivers\chromedriver\win64\135.0.7049.42]
+2025-04-06 11:21:19,187 - INFO - ====== WebDriver manager ======
+2025-04-06 11:21:19,978 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:21:20,169 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:21:20,365 - INFO - Driver [C:\Users\User\.wdm\drivers\chromedriver\win64\135.0.7049.42\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-06 11:21:45,610 - INFO - ====== WebDriver manager ======
+2025-04-06 11:21:45,611 - INFO - ====== WebDriver manager ======
+2025-04-06 11:21:46,199 - INFO - Meta data extracted successfully and saved to csv\meta_data.csv
+2025-04-06 11:21:46,205 - INFO - Keywords extracted successfully
+2025-04-06 11:21:46,608 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:21:46,608 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:21:46,797 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:21:46,850 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:21:47,092 - INFO - Driver [C:\Users\User\.wdm\drivers\chromedriver\win64\135.0.7049.42\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-06 11:21:47,093 - INFO - Driver [C:\Users\User\.wdm\drivers\chromedriver\win64\135.0.7049.42\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-06 11:22:20,370 - INFO - ====== WebDriver manager ======
+2025-04-06 11:22:21,185 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:22:21,370 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:22:21,592 - INFO - Driver [C:\Users\User\.wdm\drivers\chromedriver\win64\135.0.7049.42\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-06 11:22:59,141 - INFO - ====== WebDriver manager ======
+2025-04-06 11:22:59,964 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:23:00,176 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:23:00,462 - INFO - Driver [C:\Users\User\.wdm\drivers\chromedriver\win64\135.0.7049.42\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-06 11:23:05,294 - INFO - Meta data extracted successfully and saved to csv\meta_data.csv
+2025-04-06 11:23:05,790 - INFO - Keywords extracted successfully
+2025-04-06 11:23:44,417 - INFO - ====== WebDriver manager ======
+2025-04-06 11:23:45,212 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:23:45,519 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:23:45,767 - INFO - Driver [C:\Users\User\.wdm\drivers\chromedriver\win64\135.0.7049.42\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-06 11:27:26,432 - INFO - ====== WebDriver manager ======
+2025-04-06 11:27:26,990 - ERROR - Error fetching https://abedtahan.com/: 403 Client Error: Forbidden for url: https://abedtahan.com/
+2025-04-06 11:27:26,994 - ERROR - Error fetching https://abedtahan.com/: 403 Client Error: Forbidden for url: https://abedtahan.com/
+2025-04-06 11:27:26,996 - ERROR - Error fetching https://abedtahan.com/: 403 Client Error: Forbidden for url: https://abedtahan.com/
+2025-04-06 11:27:27,251 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:27:27,931 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:27:28,149 - INFO - Driver [C:\Users\User\.wdm\drivers\chromedriver\win64\135.0.7049.42\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-06 11:27:47,998 - INFO - ====== WebDriver manager ======
+2025-04-06 11:27:48,806 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:27:49,058 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:27:49,309 - INFO - Driver [C:\Users\User\.wdm\drivers\chromedriver\win64\135.0.7049.42\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-06 11:28:21,834 - INFO - ====== WebDriver manager ======
+2025-04-06 11:28:21,834 - INFO - ====== WebDriver manager ======
+2025-04-06 11:28:22,528 - INFO - Meta data extracted successfully and saved to Beytech_Csv\meta_data.csv
+2025-04-06 11:28:22,528 - INFO - Keywords extracted successfully
+2025-04-06 11:28:22,915 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:28:22,929 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:28:23,141 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:28:23,145 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:28:23,385 - INFO - Driver [C:\Users\User\.wdm\drivers\chromedriver\win64\135.0.7049.42\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-06 11:28:23,385 - INFO - Driver [C:\Users\User\.wdm\drivers\chromedriver\win64\135.0.7049.42\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-06 11:28:51,168 - INFO - ====== WebDriver manager ======
+2025-04-06 11:28:51,984 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:28:53,423 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:28:53,621 - INFO - Driver [C:\Users\User\.wdm\drivers\chromedriver\win64\135.0.7049.42\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-06 11:29:35,586 - INFO - ====== WebDriver manager ======
+2025-04-06 11:29:36,414 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:29:36,614 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:29:36,834 - INFO - Driver [C:\Users\User\.wdm\drivers\chromedriver\win64\135.0.7049.42\chromedriver-win32/chromedriver.exe] found in cache
+2025-04-06 11:29:41,739 - INFO - Keywords extracted successfully
+2025-04-06 11:29:42,493 - INFO - Meta data extracted successfully and saved to Hamdan_Csv\meta_data.csv
+2025-04-06 11:30:31,165 - INFO - ====== WebDriver manager ======
+2025-04-06 11:30:32,113 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:30:32,323 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-06 11:30:32,673 - INFO - Driver [C:\Users\User\.wdm\drivers\chromedriver\win64\135.0.7049.42\chromedriver-win32/chromedriver.exe] found in cache
