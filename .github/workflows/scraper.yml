@@ -31,5 +31,5 @@ jobs:
           git config --global user.email 'actions@github.com'
           git add .
           git commit -m "Update CSVs from scraper"
-          git push
+          git push origin main 
         continue-on-error: true 
