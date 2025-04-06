@@ -1,0 +1,35 @@
+name: SEO Scraper Automation
+
+on:
+  schedule:
+    - cron: "0 */2 * * *" # every 2 hours
+  workflow_dispatch: # allows manual triggering
+
+jobs:
+  run-scrapers:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run All Scrapers
+        run: python master_scrape.py
+
+      - name: Commit and push updated CSVs
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'actions@github.com'
+          git add .
+          git commit -m "Update CSVs from scraper"
+          git push
+        continue-on-error: true 
