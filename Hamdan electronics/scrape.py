@@ -185,6 +185,7 @@ def extract_headings_and_strong_words(url, folder_name):
     driver.get(url)
     time.sleep(5)  
 
+
     try:
         cookie_accept = driver.find_element(By.XPATH, "//button[contains(text(), 'Accept') or contains(text(), 'AGREE')]")
         cookie_accept.click()
