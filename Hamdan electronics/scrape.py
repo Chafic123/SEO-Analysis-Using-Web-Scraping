@@ -275,28 +275,28 @@ def extract_headings_and_strong_words(url, folder_name):
     driver.quit()
 
 # Save results (Modified for appending)
-if product_data:
-    os.makedirs(folder_name, exist_ok=True)
-    df = pd.DataFrame(product_data)
+    if product_data:
+        os.makedirs(folder_name, exist_ok=True)
+        df = pd.DataFrame(product_data)
     
-    df['Product Name'] = df['Product Name'].str.strip()
-    df = df[df['Product Name'] != "N/A"]  
+        df['Product Name'] = df['Product Name'].str.strip()
+        df = df[df['Product Name'] != "N/A"]  
     
-    df = df.drop_duplicates(subset=['Main Category', 'Product Name'], keep='first')
+        df = df.drop_duplicates(subset=['Main Category', 'Product Name'], keep='first')
     
-    file_path = os.path.join(folder_name, "products.csv")
+        file_path = os.path.join(folder_name, "products.csv")
     
     # Append to the CSV file if it exists, otherwise create a new one
-    if os.path.exists(file_path):
-        df.to_csv(file_path, mode='a', header=False, index=False)
-    else:
-        df.to_csv(file_path, mode='w', header=True, index=False)
-    
+        if os.path.exists(file_path):
+            df.to_csv(file_path, mode='a', header=False, index=False)
+        else:
+            df.to_csv(file_path, mode='w', header=True, index=False)
+
     print(f"\nSuccessfully extracted {len(df)} unique products")
     return df
-else:
-    print("No products found")
-    return None
+    else:
+        print("No products found")
+        return None
 
     
 def extract_keywords(url, folder_name):
