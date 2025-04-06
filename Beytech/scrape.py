@@ -235,24 +235,31 @@ def extract_headings_and_strong_words(url, folder_name):
     driver.quit()
 
     # Save results
-    if product_data:
-        os.makedirs(folder_name, exist_ok=True)
-        df = pd.DataFrame(product_data)
-        
-        # Clean and organize columns
-        columns_order = [
-            'Timestamp', 'Main Category', 'Product Name', 
-            'Current Price', 'Original Price']
-        df = df[columns_order]
-        
-        # Save to CSV
-        csv_path = os.path.join(folder_name, "products.csv")
-        df.to_csv(csv_path, index=False)
-        print(f"\nSuccessfully extracted {len(df)} products. Saved to {csv_path}")
-        return df
+if product_data:
+    os.makedirs(folder_name, exist_ok=True)
+    df = pd.DataFrame(product_data)
+    
+    # Clean and organize columns
+    columns_order = [
+        'Timestamp', 'Main Category', 'Product Name', 
+        'Current Price', 'Original Price']
+    df = df[columns_order]
+    
+    # Path for the CSV file
+    csv_path = os.path.join(folder_name, "products.csv")
+    
+    # Append to the CSV file if it exists, otherwise create a new one
+    if os.path.exists(csv_path):
+        df.to_csv(csv_path, mode='a', header=False, index=False)  # Append mode
     else:
-        print("No products found.")
-        return None
+        df.to_csv(csv_path, mode='w', header=True, index=False)   # Write mode for new file
+    
+    print(f"\nSuccessfully extracted {len(df)} products. Saved to {csv_path}")
+    return df
+else:
+    print("No products found.")
+    return None
+
 
 def extract_navbar_data(url, folder_name):
 
