@@ -291,8 +291,8 @@ def extract_headings_and_strong_words(url, folder_name):
         else:
             df.to_csv(file_path, mode='w', header=True, index=False)
 
-    print(f"\nSuccessfully extracted {len(df)} unique products")
-    return df
+        print(f"\nSuccessfully extracted {len(df)} unique products")
+        return df
     else:
         print("No products found")
         return None
