@@ -795,3 +795,41 @@
 2025-04-07 03:09:07,628 - INFO - Get LATEST chromedriver version for google-chrome
 2025-04-07 03:09:07,639 - INFO - Get LATEST chromedriver version for google-chrome
 2025-04-07 03:09:07,649 - INFO - Driver [/home/runner/.wdm/drivers/chromedriver/linux64/134.0.6998.165/chromedriver-linux64/chromedriver] found in cache
+2025-04-07 04:28:15,428 - INFO - ====== WebDriver manager ======
+2025-04-07 04:28:15,431 - INFO - ====== WebDriver manager ======
+2025-04-07 04:28:15,831 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-07 04:28:15,832 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-07 04:28:15,863 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-07 04:28:15,863 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-07 04:28:15,888 - INFO - There is no [linux64] chromedriver "134.0.6998.165" for browser google-chrome "134.0.6998" in cache
+2025-04-07 04:28:15,888 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-07 04:28:15,889 - INFO - There is no [linux64] chromedriver "134.0.6998.165" for browser google-chrome "134.0.6998" in cache
+2025-04-07 04:28:15,890 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-07 04:28:15,957 - INFO - WebDriver version 134.0.6998.165 selected
+2025-04-07 04:28:15,959 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/134.0.6998.165/linux64/chromedriver-linux64.zip
+2025-04-07 04:28:15,959 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/134.0.6998.165/linux64/chromedriver-linux64.zip
+2025-04-07 04:28:15,975 - INFO - WebDriver version 134.0.6998.165 selected
+2025-04-07 04:28:15,977 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/134.0.6998.165/linux64/chromedriver-linux64.zip
+2025-04-07 04:28:15,977 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/134.0.6998.165/linux64/chromedriver-linux64.zip
+2025-04-07 04:28:15,992 - INFO - Driver downloading response is 200
+2025-04-07 04:28:16,003 - INFO - Driver downloading response is 200
+2025-04-07 04:28:16,306 - INFO - Meta data extracted successfully and saved to Beytech_Csv/meta_data.csv
+2025-04-07 04:28:16,307 - INFO - Keywords extracted successfully
+2025-04-07 04:28:16,570 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-07 04:28:16,571 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-07 04:28:16,715 - INFO - Driver has been saved in cache [/home/runner/.wdm/drivers/chromedriver/linux64/134.0.6998.165]
+2025-04-07 04:28:16,715 - INFO - Driver has been saved in cache [/home/runner/.wdm/drivers/chromedriver/linux64/134.0.6998.165]
+2025-04-07 04:28:29,598 - INFO - ====== WebDriver manager ======
+2025-04-07 04:28:29,709 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-07 04:28:29,733 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-07 04:28:29,756 - INFO - Driver [/home/runner/.wdm/drivers/chromedriver/linux64/134.0.6998.165/chromedriver-linux64/chromedriver] found in cache
+2025-04-07 04:28:55,722 - INFO - ====== WebDriver manager ======
+2025-04-07 04:28:55,838 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-07 04:28:55,861 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-07 04:28:55,886 - INFO - Driver [/home/runner/.wdm/drivers/chromedriver/linux64/134.0.6998.165/chromedriver-linux64/chromedriver] found in cache
+2025-04-07 04:28:57,924 - INFO - Keywords extracted successfully
+2025-04-07 04:28:58,030 - INFO - Meta data extracted successfully and saved to Abed_Csv/meta_data.csv
+2025-04-07 04:29:09,240 - INFO - ====== WebDriver manager ======
+2025-04-07 04:29:09,353 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-07 04:29:09,377 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-07 04:29:09,399 - INFO - Driver [/home/runner/.wdm/drivers/chromedriver/linux64/134.0.6998.165/chromedriver-linux64/chromedriver] found in cache
