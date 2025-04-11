@@ -306,7 +306,7 @@ def extract_headings_and_strong_words(url, folder_name):
 
     driver.quit()
 
-    # Save results
+        # Save results
     if product_data:
         os.makedirs(folder_name, exist_ok=True)
         df = pd.DataFrame(product_data)

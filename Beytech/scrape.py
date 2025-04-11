@@ -257,6 +257,7 @@ def extract_headings_and_strong_words(url, folder_name):
         print("No products found.")
         return None
 
+
 def extract_navbar_data(url, folder_name):
 
     options = webdriver.ChromeOptions()

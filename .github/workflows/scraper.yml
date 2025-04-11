@@ -2,7 +2,7 @@ name: SEO Scraper Automation
 
 on:
   schedule:
-    - cron: "0 */2 * * *" # every 2 hours
+    - cron: "0 */1 * * *" # every 2 hours
   workflow_dispatch: # allows manual triggering
 
 jobs:
