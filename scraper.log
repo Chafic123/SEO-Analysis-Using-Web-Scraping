@@ -4391,3 +4391,45 @@
 2025-04-12 22:15:51,997 - INFO - Get LATEST chromedriver version for google-chrome
 2025-04-12 22:15:52,029 - INFO - Get LATEST chromedriver version for google-chrome
 2025-04-12 22:15:52,060 - INFO - Driver [/home/runner/.wdm/drivers/chromedriver/linux64/135.0.7049.84/chromedriver-linux64/chromedriver] found in cache
+2025-04-12 23:14:39,938 - INFO - ====== WebDriver manager ======
+2025-04-12 23:14:40,294 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-12 23:14:40,325 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-12 23:14:40,352 - INFO - There is no [linux64] chromedriver "135.0.7049.84" for browser google-chrome "135.0.7049" in cache
+2025-04-12 23:14:40,352 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-12 23:14:40,421 - INFO - WebDriver version 135.0.7049.84 selected
+2025-04-12 23:14:40,423 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.84/linux64/chromedriver-linux64.zip
+2025-04-12 23:14:40,423 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.84/linux64/chromedriver-linux64.zip
+2025-04-12 23:14:40,469 - INFO - Driver downloading response is 200
+2025-04-12 23:14:40,533 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-12 23:14:40,664 - INFO - Driver has been saved in cache [/home/runner/.wdm/drivers/chromedriver/linux64/135.0.7049.84]
+2025-04-12 23:14:44,843 - INFO - Meta data extracted successfully and saved to Hamdan_Csv/meta_data.csv
+2025-04-12 23:14:44,843 - INFO - Keywords extracted successfully
+2025-04-12 23:15:02,140 - INFO - ====== WebDriver manager ======
+2025-04-12 23:15:02,251 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-12 23:15:02,276 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-12 23:15:02,301 - INFO - Driver [/home/runner/.wdm/drivers/chromedriver/linux64/135.0.7049.84/chromedriver-linux64/chromedriver] found in cache
+2025-04-12 23:15:35,818 - INFO - ====== WebDriver manager ======
+2025-04-12 23:15:35,820 - INFO - ====== WebDriver manager ======
+2025-04-12 23:15:35,934 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-12 23:15:35,936 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-12 23:15:35,959 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-12 23:15:35,962 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-12 23:15:35,984 - INFO - Driver [/home/runner/.wdm/drivers/chromedriver/linux64/135.0.7049.84/chromedriver-linux64/chromedriver] found in cache
+2025-04-12 23:15:35,986 - INFO - Driver [/home/runner/.wdm/drivers/chromedriver/linux64/135.0.7049.84/chromedriver-linux64/chromedriver] found in cache
+2025-04-12 23:15:36,529 - INFO - Meta data extracted successfully and saved to Beytech_Csv/meta_data.csv
+2025-04-12 23:15:36,543 - INFO - Keywords extracted successfully
+2025-04-12 23:15:48,464 - INFO - ====== WebDriver manager ======
+2025-04-12 23:15:48,575 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-12 23:15:48,600 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-12 23:15:48,622 - INFO - Driver [/home/runner/.wdm/drivers/chromedriver/linux64/135.0.7049.84/chromedriver-linux64/chromedriver] found in cache
+2025-04-12 23:16:14,554 - INFO - ====== WebDriver manager ======
+2025-04-12 23:16:14,620 - ERROR - Error fetching https://abedtahan.com/: 403 Client Error: Forbidden for url: https://abedtahan.com/
+2025-04-12 23:16:14,626 - ERROR - Error fetching https://abedtahan.com/: 403 Client Error: Forbidden for url: https://abedtahan.com/
+2025-04-12 23:16:14,653 - ERROR - Error fetching https://abedtahan.com/: 403 Client Error: Forbidden for url: https://abedtahan.com/
+2025-04-12 23:16:14,672 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-12 23:16:14,695 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-12 23:16:14,718 - INFO - Driver [/home/runner/.wdm/drivers/chromedriver/linux64/135.0.7049.84/chromedriver-linux64/chromedriver] found in cache
+2025-04-12 23:16:27,603 - INFO - ====== WebDriver manager ======
+2025-04-12 23:16:27,714 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-12 23:16:27,738 - INFO - Get LATEST chromedriver version for google-chrome
+2025-04-12 23:16:27,759 - INFO - Driver [/home/runner/.wdm/drivers/chromedriver/linux64/135.0.7049.84/chromedriver-linux64/chromedriver] found in cache
