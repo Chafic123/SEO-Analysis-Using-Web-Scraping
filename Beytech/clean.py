@@ -43,5 +43,43 @@ def clean_beytech():
     except Exception as e:
         print(f"Error cleaning Beytech_Csv: {e}")
 
+def clean_backlinks():
+    try:
+        folder_csv_path = "../Beytech_Csv"
+        csv_file_path = os.path.join(folder_csv_path, "backlinks.csv")
+        cleaned_csv_path = os.path.join(folder_csv_path, "backlinks.csv")
+
+        if not os.path.exists(csv_file_path):
+            print(f"Error: {csv_file_path} not found.")
+            return
+
+        df = pd.read_csv(csv_file_path)
+        df = df.apply(lambda col: col.str.strip() if col.dtype == "object" else col)
+        def get_platform(row):
+            if pd.notna(row["Type"]) and row["Type"] != "N/A":
+                return row["Type"]
+            elif pd.notna(row["Anchor Text"]) and row["Anchor Text"] != "N/A":
+                return row["Anchor Text"]
+            return None  # Return None for unknowns
+
+        df["Platform"] = df.apply(get_platform, axis=1)
+
+        # Drop rows with unknown platforms
+        df.dropna(subset=["Platform"], inplace=True)
+
+        # Select only Platform and URL columns
+        cleaned_df = df[["Platform", "URL"]]
+
+        # Optional: remove duplicates
+        cleaned_df.drop_duplicates(inplace=True)
+
+        # Save cleaned file
+        cleaned_df.to_csv(cleaned_csv_path, index=False)
+        print(f"Backlinks cleaned and saved to {cleaned_csv_path}.")
+    except Exception as e:
+        print(f"Error cleaning backlinks.csv: {e}")
+
+
 if __name__ == "__main__":
+    clean_backlinks()
     clean_beytech()

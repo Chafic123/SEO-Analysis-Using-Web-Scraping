@@ -14,15 +14,15 @@ st.set_page_config(page_title="SEO Analysis Dashboard", layout="wide")
 companies = {
     "Abed Tahhan": {
         "seo_path": "Abed Tahhan/csv",
-        "products_path": "Abed_Csv/cleaned_Csv.csv"
+        "products_path": "Abed_Csv"
     },
     "Beytech": {
         "seo_path": "Beytech/csv",
-        "products_path": "Beytech_Csv/cleaned_Csv.csv"
+        "products_path": "Beytech_Csv"
     },
     "Hamdan electronics": {
         "seo_path": "Hamdan electronics/csv",
-        "products_path": "Hamdan_Csv/cleaned_Csv.csv"
+        "products_path": "Hamdan_Csv"
     }
 }
 
@@ -51,11 +51,11 @@ else:
 def load_company_data(seo_path, products_path):
     data = {
         "meta_data": pd.read_csv(os.path.join(seo_path, "meta_data.csv")),
-        "backlinks": pd.read_csv(os.path.join(seo_path, "backlinks.csv")),
+        "backlinks": pd.read_csv(os.path.join(products_path, "backlinks.csv")),
         "navbar": pd.read_csv(os.path.join(seo_path, "navbar.csv")),
         "seo_keywords": pd.read_csv(os.path.join(seo_path, "seo_keywords.csv")),
         "tfidf_keywords": pd.read_csv(os.path.join(seo_path, "tfidf_keywords.csv")),
-        "products": pd.read_csv(products_path, parse_dates=["Timestamp"])
+        "products":  pd.read_csv(os.path.join(products_path, "cleaned_Csv.csv"), parse_dates=["Timestamp"])
     }
     return data
 
@@ -91,51 +91,6 @@ def create_comparison_chart(data_dict, metric_func, title, chart_type='bar'):
     
     return fig
 
-# --- SEO Score and Meta Tags Side-by-Side
-with st.container():
-    col1, col2 = st.columns(2)
-    
-    with col1:
-        st.subheader("⭐ SEO Score Comparison" if comparison_mode else "⭐ Estimated SEO Score")
-        
-        if comparison_mode:
-            seo_scores = {}
-            for company_name, data in all_data.items():
-                meta_score = len(data["meta_data"])
-                keyword_score = data["seo_keywords"]["Count"].sum()
-                backlink_score = len(data["backlinks"])
-                seo_scores[company_name] = meta_score + keyword_score + backlink_score
-            
-            fig = px.bar(
-                x=list(seo_scores.keys()),
-                y=list(seo_scores.values()),
-                labels={'x': 'Company', 'y': 'SEO Score'},
-                title="SEO Score Comparison",
-                color=list(seo_scores.keys()),
-                color_discrete_sequence=px.colors.qualitative.Plotly
-            )
-            st.plotly_chart(fig, use_container_width=True)
-        else:
-            data = all_data[selected_companies[0]]
-            meta_score = len(data["meta_data"])
-            keyword_score = data["seo_keywords"]["Count"].sum()
-            backlink_score = len(data["backlinks"])
-            seo_score = meta_score + keyword_score + backlink_score
-            st.metric("SEO Score", int(seo_score))
-    
-    with col2:
-        
-        if comparison_mode:
-            meta_counts = {name: len(data["meta_data"]) for name, data in all_data.items()}
-            fig = px.bar(
-                x=list(meta_counts.keys()),
-                y=list(meta_counts.values()),
-                labels={'x': 'Company', 'y': 'Number of Meta Tags'},
-                title="Meta Tag Count Comparison",
-                color=list(meta_counts.keys()),
-                color_discrete_sequence=px.colors.qualitative.Plotly
-            )
-            st.plotly_chart(fig, use_container_width=True)
 
 #Backlinks
 with st.container():
@@ -143,6 +98,7 @@ with st.container():
     
     if comparison_mode: 
         # Create a combined backlinks DataFrame for comparison
+        
         backlinks_dfs = []
         for company_name, data in all_data.items():
             df = data["backlinks"].copy()
@@ -171,7 +127,6 @@ with st.container():
             )
             st.plotly_chart(fig_total, use_container_width=True)
 
-            # Comparison by platform type – FIX: ensure all companies & platforms are shown
             platform_counts = combined_backlinks.groupby(['Company', platform_col]).size().reset_index(name='Count')
 
             # Create a complete grid of all companies and all platforms
@@ -189,7 +144,10 @@ with st.container():
                 color=platform_col,
                 title=f"Backlinks by {platform_col} Comparison",
                 barmode='group',
-                category_orders={"Company": list(all_data.keys())}
+                category_orders={
+                    "Company": list(all_data.keys()),
+                    platform_col: sorted([str(p) for p in all_platforms])
+                }
             )
 
             st.plotly_chart(fig_platform, use_container_width=True)
