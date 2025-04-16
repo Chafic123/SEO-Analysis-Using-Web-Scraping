@@ -1,0 +1,4 @@
+Website,Title Present,Title Length OK,Description Present,Description Length OK,Viewport Present,Canonical Present,Robots Directive,Strength Score
+abedtahan.com,True,False,True,False,True,False,,42.86
+hamdanelectronics.com,True,False,True,False,True,False,,42.86
+beytech.com.lb,True,False,True,True,True,False,"follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",71.43
