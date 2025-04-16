@@ -1,0 +1,25 @@
+Website Name,Key,Value
+abedtahan.com,title_present,True
+abedtahan.com,title_length_ok,False
+abedtahan.com,description_present,True
+abedtahan.com,description_length_ok,False
+abedtahan.com,robots_directive,
+abedtahan.com,viewport_present,True
+abedtahan.com,canonical_present,False
+abedtahan.com,strength_score,42.857142857142854
+hamdanelectronics.com,title_present,True
+hamdanelectronics.com,title_length_ok,False
+hamdanelectronics.com,description_present,True
+hamdanelectronics.com,description_length_ok,False
+hamdanelectronics.com,robots_directive,
+hamdanelectronics.com,viewport_present,True
+hamdanelectronics.com,canonical_present,False
+hamdanelectronics.com,strength_score,42.857142857142854
+beytech.com.lb,title_present,True
+beytech.com.lb,title_length_ok,False
+beytech.com.lb,description_present,True
+beytech.com.lb,description_length_ok,True
+beytech.com.lb,robots_directive,"follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"
+beytech.com.lb,viewport_present,True
+beytech.com.lb,canonical_present,False
+beytech.com.lb,strength_score,71.42857142857143
